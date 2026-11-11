@@ -3,7 +3,8 @@ import React from 'react';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
 import { JourneyTimeline } from './components/JourneyTimeline';
-import { WelcomeStory } from './components/WelcomeStory';
+import { FamilyMessages } from './components/FamilyMessages';
+// import { WelcomeStory } from './components/WelcomeStory';
 import { IntroVideo } from './components/IntroVideo';
 import { EventDetails } from './components/EventDetails';
 import { Venue } from './components/Venue';
@@ -66,10 +67,13 @@ export default function App() {
             {/* Section 3: Our Journey Photos with Years */}
             <JourneyTimeline />
 
-            {/* Section 4: Welcome to Our Story */}
-            <WelcomeStory />
+            {/* Section 4: Family Members Message to Guests */}
+            <FamilyMessages />
 
-            {/* Section 5: Intro Video */}
+            {/* Section 5: Welcome to Our Story (commented out for now) */}
+            {/* <WelcomeStory /> */}
+
+            {/* Section 6: Intro Video */}
             <IntroVideo />
 
             {/* Section 6: Event Details & Itinerary */}
