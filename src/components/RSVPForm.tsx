@@ -54,7 +54,7 @@ export const RSVPForm: React.FC = () => {
   return (
     <section
       id="rsvp"
-      className="relative text-[#2A1E17] py-7 sm:py-9 px-3 overflow-hidden border-b border-[#D5C0A5]/60"
+      className="relative text-[#2A1E17] py-10 sm:py-12 px-4 overflow-hidden border-b border-[#D5C0A5]/50"
     >
       {/* Botanical floral foliage flanking left and right */}
       <div className="absolute top-0 bottom-0 left-0 w-12 sm:w-16 pointer-events-none opacity-80 overflow-hidden flex flex-col justify-between">
@@ -67,10 +67,10 @@ export const RSVPForm: React.FC = () => {
       <div className="max-w-md mx-auto text-center relative z-10">
         
         {/* Headings */}
-        <h2 className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.2em] text-[#2A1E17] uppercase">
+        <h2 className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.22em] text-[#2A1E17] uppercase">
           WILL YOU JOIN US?
         </h2>
-        <p className="font-serif-luxury italic text-[11px] sm:text-xs text-[#5E4738] mt-0.5 mb-4 max-w-xs mx-auto leading-relaxed">
+        <p className="font-serif-luxury italic text-[11px] sm:text-xs text-[#5E4738] mt-1 mb-6 max-w-xs mx-auto leading-relaxed">
           Your presence will make this day even more special for us. Kindly confirm your attendance.
         </p>
 
@@ -230,7 +230,7 @@ export const RSVPForm: React.FC = () => {
         )}
 
         {/* Bottom Contact Numbers for Direct Mobile Tap-to-Call */}
-        <div className="mt-4 flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-sans-clean text-[#4A392F]">
+        <div className="mt-6 flex items-center justify-center gap-1.5 text-[11px] sm:text-xs font-sans-clean text-[#4A392F]">
           <Phone className="w-3 h-3 text-[#B87C29] shrink-0" />
           <span className="font-semibold text-[#2A1E17]">R.S.V.P.</span>
           <a href="tel:9433007412" className="hover:text-[#B87C29] transition-colors font-medium">9433007412 (Raj)</a>

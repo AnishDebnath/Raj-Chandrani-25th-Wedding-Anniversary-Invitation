@@ -10,15 +10,15 @@ export const Venue: React.FC = () => {
   return (
     <section
       id="venue"
-      className="relative text-[#2A1E17] py-6 sm:py-8 px-3 overflow-hidden border-b border-[#D5C0A5]/60"
+      className="relative text-[#2A1E17] py-10 sm:py-12 px-4 overflow-hidden border-b border-[#D5C0A5]/50"
     >
       <div className="max-w-md mx-auto relative z-10">
         
         {/* Luxury Card: Left Image + Right Cream Card */}
-        <div className="rounded-xl overflow-hidden border border-[#D5C0A5] shadow-sm bg-white/70 backdrop-blur-[2px] grid grid-cols-12">
+        <div className="rounded-2xl overflow-hidden border border-[#D5C0A5] shadow-sm bg-white/70 backdrop-blur-[2px] grid grid-cols-12">
           
           {/* Left: Venue Image */}
-          <div className="col-span-7 relative min-h-[140px] sm:min-h-[160px]">
+          <div className="col-span-7 relative min-h-[145px] sm:min-h-[165px]">
             <img
               src={venueAdbManorImg}
               alt="ADB Manor Kolkata"
@@ -27,7 +27,7 @@ export const Venue: React.FC = () => {
           </div>
 
           {/* Right: Information Card */}
-          <div className="col-span-5 bg-white/90 p-2 sm:p-3 flex flex-col justify-center items-center text-center">
+          <div className="col-span-5 bg-white/90 p-2.5 sm:p-3.5 flex flex-col justify-center items-center text-center">
             <span className="font-cinzel text-[8.5px] sm:text-[9.5px] tracking-[0.2em] text-[#8C5D23] uppercase font-bold mb-0.5">
               VENUE
             </span>
@@ -37,7 +37,7 @@ export const Venue: React.FC = () => {
               <span>ADB MANOR</span>
             </div>
 
-            <p className="font-serif-luxury text-[8.5px] sm:text-[9.5px] text-[#5C4535] leading-snug mb-2">
+            <p className="font-serif-luxury text-[8.5px] sm:text-[9.5px] text-[#5C4535] leading-snug mb-2.5">
               69/1 Purna Das Road
               <br />
               Kolkata - 700029
@@ -49,7 +49,7 @@ export const Venue: React.FC = () => {
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-[#D8A25E] via-[#C99A50] to-[#B87C29] text-[#090909] font-sans-clean font-bold text-[8.5px] sm:text-[9.5px] tracking-wide shadow-xs hover:brightness-105 active:scale-95 transition-all whitespace-nowrap min-h-[26px]"
+              className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gradient-to-r from-[#D8A25E] via-[#C99A50] to-[#B87C29] text-[#090909] font-sans-clean font-bold text-[8.5px] sm:text-[9.5px] tracking-wide shadow-xs hover:brightness-105 active:scale-95 transition-all whitespace-nowrap min-h-[26px]"
             >
               <MapPin className="w-2.5 h-2.5" />
               <span>View on Maps</span>

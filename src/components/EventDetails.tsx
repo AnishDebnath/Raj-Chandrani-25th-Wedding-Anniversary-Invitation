@@ -1,11 +1,11 @@
-// ponytail: mobile-first event details styled for background.png
+// ponytail: mobile-first event details with refined padding & margins
 import React from 'react';
 import { Users, Mic, Cake, Utensils } from 'lucide-react';
 
 const EVENTS = [
   {
     icon: <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C5D23]" />,
-    title: 'Welcome & Registration',
+    title: 'Welcome & Reception',
     time: '6:00 PM Onwards',
   },
   {
@@ -20,7 +20,7 @@ const EVENTS = [
   },
   {
     icon: <Utensils className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C5D23]" />,
-    title: 'Celebration Dinner',
+    title: 'Banquet Dinner',
     time: '9:00 PM',
   },
 ];
@@ -29,37 +29,37 @@ export const EventDetails: React.FC = () => {
   return (
     <section
       id="event-details"
-      className="relative text-[#2A1E17] py-7 sm:py-9 px-2 sm:px-3 overflow-hidden border-b border-[#D5C0A5]/60"
+      className="relative text-[#2A1E17] py-10 sm:py-12 px-4 overflow-hidden border-b border-[#D5C0A5]/50"
     >
       <div className="max-w-md mx-auto relative z-10 text-center">
         
         {/* Headings */}
-        <h2 className="font-cinzel text-xs sm:text-sm font-bold tracking-[0.25em] text-[#8C5D23] uppercase">
+        <span className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.28em] text-[#8C5D23] uppercase block mb-1.5">
           EVENT DETAILS
-        </h2>
-        <p className="font-serif-luxury italic text-[11px] sm:text-xs text-[#5E4738] mt-0.5 mb-4">
+        </span>
+        <h2 className="font-serif-luxury italic text-xs sm:text-sm text-[#5E4738] mt-1 mb-7">
           Join us for an evening of love, memories and celebration
-        </p>
+        </h2>
 
         {/* 4-Column Layout with Delicate Dividers */}
         <div className="grid grid-cols-4 divide-x divide-[#D5C0A5]/60">
           {EVENTS.map((event, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center text-center px-1 sm:px-1.5"
+              className="flex flex-col items-center text-center px-1.5 sm:px-2"
             >
               {/* Circular Gold Outlined Badge */}
-              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#D5C0A5] bg-white/80 backdrop-blur-[2px] flex items-center justify-center mb-1.5 shadow-xs shrink-0">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#D5C0A5] bg-white/85 backdrop-blur-[2px] flex items-center justify-center mb-2 shadow-xs shrink-0">
                 {event.icon}
               </div>
 
               {/* Title */}
-              <h3 className="font-serif-luxury text-[8.5px] sm:text-[10px] font-semibold text-[#2A1E17] leading-tight min-h-[30px] flex items-center justify-center">
+              <h3 className="font-serif-luxury text-[9px] sm:text-[10.5px] font-semibold text-[#2A1E17] leading-tight min-h-[32px] flex items-center justify-center">
                 {event.title}
               </h3>
 
               {/* Time */}
-              <span className="font-sans-clean text-[7.5px] sm:text-[9px] font-medium text-[#8C5D23] mt-1 whitespace-nowrap">
+              <span className="font-sans-clean text-[8px] sm:text-[9.5px] font-medium text-[#8C5D23] mt-1.5 whitespace-nowrap">
                 {event.time}
               </span>
             </div>

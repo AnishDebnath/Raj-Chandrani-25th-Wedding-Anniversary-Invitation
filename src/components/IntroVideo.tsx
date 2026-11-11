@@ -1,4 +1,4 @@
-// ponytail: anniversary intro video player component
+// ponytail: anniversary intro video player with refined padding & margins
 import React, { useRef, useState } from 'react';
 import { Play, Pause, Volume2, VolumeX, Sparkles } from 'lucide-react';
 import { introVideo } from '../assets';
@@ -26,24 +26,24 @@ export const IntroVideo: React.FC = () => {
   };
 
   return (
-    <section id="intro-video" className="relative py-6 sm:py-8 px-3 overflow-hidden">
+    <section id="intro-video" className="relative py-10 sm:py-12 px-4 overflow-hidden border-b border-[#D5C0A5]/50">
       <div className="max-w-md mx-auto text-center relative z-10">
         
         {/* Section Header */}
-        <div className="flex items-center justify-center gap-1.5 mb-1">
-          <Sparkles className="w-3 h-3 text-[#B87C29]" />
-          <span className="font-cinzel text-[9.5px] sm:text-[10.5px] tracking-[0.25em] text-[#8C5D23] uppercase font-bold">
+        <div className="flex items-center justify-center gap-1.5 mb-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-[#B87C29]" />
+          <span className="font-cinzel text-[10px] sm:text-[11px] tracking-[0.28em] text-[#8C5D23] uppercase font-bold">
             A Journey of 25 Years
           </span>
-          <Sparkles className="w-3 h-3 text-[#B87C29]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#B87C29]" />
         </div>
 
-        <h2 className="font-script-romantic text-2xl sm:text-3xl text-[#2A1E17] mb-3">
+        <h2 className="font-script-romantic text-3xl sm:text-4xl text-[#2A1E17] my-1">
           Watch Our Celebration
         </h2>
 
-        {/* Video Frame */}
-        <div className="relative rounded-2xl overflow-hidden border border-[#D5C0A5] shadow-lg bg-black/90 aspect-[16/9] sm:aspect-[16/10] max-w-sm mx-auto group">
+        {/* Video Frame with breathing room */}
+        <div className="relative rounded-2xl overflow-hidden border border-[#D5C0A5] shadow-lg bg-black/90 aspect-[16/9] sm:aspect-[16/10] max-w-[340px] sm:max-w-sm mx-auto mt-6 group">
           <video
             ref={videoRef}
             src={introVideo}
@@ -69,7 +69,7 @@ export const IntroVideo: React.FC = () => {
           )}
 
           {/* Bottom Video Controls Bar */}
-          <div className="absolute bottom-2 right-2 flex items-center gap-1.5 z-20">
+          <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 z-20">
             <button
               type="button"
               onClick={toggleMute}
@@ -93,4 +93,3 @@ export const IntroVideo: React.FC = () => {
     </section>
   );
 };
-
