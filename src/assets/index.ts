@@ -10,6 +10,7 @@ import giftBoxImg from './images/gift-box.png';
 import floralBorderLeftImg from './images/floral-border-left.png';
 import floralBorderRightImg from './images/floral-border-right.png';
 import heroBgImg from './images/hero-bg.jpg';
+import footerCoupleImg from './images/footer-couple.jpg';
 import backgroundImg from './background.png';
 import introVideo from './intro.mp4';
 
@@ -17,6 +18,7 @@ export {
   heroCoupleImg,
   heroFloralBottomImg,
   heroBgImg,
+  footerCoupleImg,
   journey1Img,
   journey2Img,
   journey3Img,

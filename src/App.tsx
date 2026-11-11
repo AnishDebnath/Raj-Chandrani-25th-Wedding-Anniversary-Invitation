@@ -9,6 +9,7 @@ import { EventDetails } from './components/EventDetails';
 import { Venue } from './components/Venue';
 import { RSVPForm } from './components/RSVPForm';
 import { ShareInvitation } from './components/ShareInvitation';
+import { Footer } from './components/Footer';
 import { backgroundImg } from './assets';
 
 export default function App() {
@@ -83,6 +84,9 @@ export default function App() {
 
             {/* Section 9: Share Invitation */}
             <ShareInvitation />
+
+            {/* Section 10: Photographic Couple Footer */}
+            <Footer />
           </div>
         </main>
       </div>
