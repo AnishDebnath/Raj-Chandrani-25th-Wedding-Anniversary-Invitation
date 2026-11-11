@@ -78,10 +78,10 @@ export const FamilyMessages: React.FC = () => {
         <div className="relative w-full max-w-[330px] sm:max-w-[360px] mx-auto">
           
           {/* Background Card Layer (Stack effect) */}
-          <div className="absolute inset-0 rounded-3xl border border-[#D5C0A5]/60 bg-white/40 transform translate-y-2 translate-x-1.5 sm:translate-y-2.5 sm:translate-x-2 -z-10 shadow-xs" />
+          <div className="absolute inset-0 rounded-3xl border border-[#C5A77B]/50 bg-[#E8D4B4]/40 transform translate-y-2 translate-x-1.5 sm:translate-y-2.5 sm:translate-x-2 -z-10 shadow-xs" />
 
-          {/* Foreground Main Card */}
-          <div className="relative rounded-3xl border border-[#D5C0A5] bg-[#FAF7F2]/95 backdrop-blur-sm p-6 sm:p-8 shadow-sm flex flex-col items-center text-center">
+          {/* Foreground Main Card with warm theme-matched parchment background */}
+          <div className="relative rounded-3xl border border-[#C5A77B]/70 bg-gradient-to-b from-[#FBF2E3]/95 via-[#F4E4CB]/90 to-[#EAD4B4]/95 backdrop-blur-md p-6 sm:p-8 shadow-[0_10px_25px_rgba(84,47,7,0.12)] flex flex-col items-center text-center">
             
             {/* Card Kicker (e.g. CHAPTER 01) */}
             <span className="font-cinzel text-[10.5px] sm:text-[11px] tracking-[0.25em] text-[#8C5D23] font-bold uppercase mb-1">
