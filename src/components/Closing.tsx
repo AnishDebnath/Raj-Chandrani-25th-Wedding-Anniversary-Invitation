@@ -28,11 +28,11 @@ export const Closing: React.FC<ClosingProps> = ({ onRSVPClick }) => {
 
           {/* Right: CTA Text & RSVP Button */}
           <div className="col-span-7 flex flex-col items-center sm:items-start text-center sm:text-left pl-1">
-            <h2 className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.18em] text-[#2A1E17] uppercase leading-tight">
+            <h2 className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.18em] text-[#150C07] uppercase leading-tight drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
               BE A PART OF OUR CELEBRATION
             </h2>
 
-            <p className="font-serif-luxury italic text-[9.5px] sm:text-[11px] text-[#5E4738] mt-1.5 mb-3.5 leading-snug">
+            <p className="font-serif-luxury italic text-[9.5px] sm:text-[11px] text-[#24150C] font-medium mt-1.5 mb-3.5 leading-snug">
               Your presence will make this day even more special for us. Kindly confirm your attendance.
             </p>
 
@@ -53,15 +53,15 @@ export const Closing: React.FC<ClosingProps> = ({ onRSVPClick }) => {
       <div className="py-10 sm:py-12 px-4 text-center">
         <div className="max-w-xs mx-auto flex flex-col items-center">
           {/* Gold heart */}
-          <Heart className="w-4 h-4 text-[#B87C29] fill-[#B87C29] mb-2 opacity-85" />
+          <Heart className="w-4 h-4 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90" />
 
           {/* 25 YEARS */}
-          <span className="font-cinzel text-sm sm:text-base font-bold tracking-[0.25em] text-[#2A1E17]">
+          <span className="font-cinzel text-sm sm:text-base font-bold tracking-[0.25em] text-[#150C07] drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
             25 YEARS
           </span>
 
           {/* AND A LIFETIME TO GO */}
-          <span className="font-cinzel text-[10px] sm:text-xs tracking-[0.2em] text-[#8C5D23] font-medium mt-1">
+          <span className="font-cinzel text-[10px] sm:text-xs tracking-[0.2em] text-[#5A320A] font-bold mt-1">
             AND A LIFETIME TO GO
           </span>
 
@@ -74,7 +74,7 @@ export const Closing: React.FC<ClosingProps> = ({ onRSVPClick }) => {
             </svg>
           </div>
 
-          <p className="text-[9.5px] font-sans-clean text-[#6E5542] tracking-wider mt-4">
+          <p className="text-[9.5px] font-sans-clean text-[#381F0E] font-semibold tracking-wider mt-4">
             Raj &amp; Chandrani · ADB MANOR Kolkata · 23 January 2027
           </p>
         </div>

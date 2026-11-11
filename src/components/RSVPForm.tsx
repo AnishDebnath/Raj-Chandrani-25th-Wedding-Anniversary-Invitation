@@ -67,10 +67,10 @@ export const RSVPForm: React.FC = () => {
       <div className="max-w-md mx-auto text-center relative z-10">
         
         {/* Headings */}
-        <h2 className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.22em] text-[#2A1E17] uppercase">
+        <h2 className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.22em] text-[#150C07] uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
           WILL YOU JOIN US?
         </h2>
-        <p className="font-serif-luxury italic text-[11px] sm:text-xs text-[#5E4738] mt-1 mb-6 max-w-xs mx-auto leading-relaxed">
+        <p className="font-serif-luxury italic text-[11px] sm:text-xs text-[#24150C] font-medium mt-1 mb-6 max-w-xs mx-auto leading-relaxed">
           Your presence will make this day even more special for us. Kindly confirm your attendance.
         </p>
 

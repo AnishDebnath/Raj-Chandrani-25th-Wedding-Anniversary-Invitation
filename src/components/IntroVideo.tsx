@@ -32,13 +32,13 @@ export const IntroVideo: React.FC = () => {
         {/* Section Header */}
         <div className="flex items-center justify-center gap-1.5 mb-1.5">
           <Sparkles className="w-3.5 h-3.5 text-[#B87C29]" />
-          <span className="font-cinzel text-[10px] sm:text-[11px] tracking-[0.28em] text-[#8C5D23] uppercase font-bold">
+          <span className="font-cinzel text-[11px] sm:text-xs tracking-[0.28em] text-[#5A320A] uppercase font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
             A Journey of 25 Years
           </span>
           <Sparkles className="w-3.5 h-3.5 text-[#B87C29]" />
         </div>
 
-        <h2 className="font-script-romantic text-3xl sm:text-4xl text-[#2A1E17] my-1">
+        <h2 className="font-script-romantic text-3xl sm:text-4xl text-[#150C07] my-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
           Watch Our Celebration
         </h2>
 

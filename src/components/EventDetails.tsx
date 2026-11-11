@@ -34,10 +34,10 @@ export const EventDetails: React.FC = () => {
       <div className="max-w-md mx-auto relative z-10 text-center">
         
         {/* Headings */}
-        <span className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.28em] text-[#8C5D23] uppercase block mb-1.5">
+        <span className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.28em] text-[#5A320A] uppercase block mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
           EVENT DETAILS
         </span>
-        <h2 className="font-serif-luxury italic text-xs sm:text-sm text-[#5E4738] mt-1 mb-7">
+        <h2 className="font-serif-luxury italic text-xs sm:text-sm text-[#22140B] font-medium mt-1 mb-7">
           Join us for an evening of love, memories and celebration
         </h2>
 
@@ -49,17 +49,17 @@ export const EventDetails: React.FC = () => {
               className="flex flex-col items-center text-center px-1.5 sm:px-2"
             >
               {/* Circular Gold Outlined Badge */}
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#D5C0A5] bg-white/85 backdrop-blur-[2px] flex items-center justify-center mb-2 shadow-xs shrink-0">
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#D5C0A5] bg-white/90 backdrop-blur-[2px] flex items-center justify-center mb-2 shadow-xs shrink-0">
                 {event.icon}
               </div>
 
               {/* Title */}
-              <h3 className="font-serif-luxury text-[9px] sm:text-[10.5px] font-semibold text-[#2A1E17] leading-tight min-h-[32px] flex items-center justify-center">
+              <h3 className="font-serif-luxury text-[9.5px] sm:text-[11px] font-bold text-[#150C07] leading-tight min-h-[32px] flex items-center justify-center">
                 {event.title}
               </h3>
 
               {/* Time */}
-              <span className="font-sans-clean text-[8px] sm:text-[9.5px] font-medium text-[#8C5D23] mt-1.5 whitespace-nowrap">
+              <span className="font-sans-clean text-[8.5px] sm:text-[10px] font-bold text-[#5A320A] mt-1.5 whitespace-nowrap">
                 {event.time}
               </span>
             </div>

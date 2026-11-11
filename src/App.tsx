@@ -1,11 +1,10 @@
-// ponytail: mobile-first wedding anniversary invitation app with WelcomeStory section
+// ponytail: mobile-first wedding anniversary invitation app with JourneyTimeline section
 import React from 'react';
 import { Hero } from './components/Hero';
-import { WelcomeStory } from './components/WelcomeStory';
 import { Countdown } from './components/Countdown';
+import { JourneyTimeline } from './components/JourneyTimeline';
+import { WelcomeStory } from './components/WelcomeStory';
 import { IntroVideo } from './components/IntroVideo';
-import { JourneyCarousel } from './components/JourneyCarousel';
-import { YearsOfUs } from './components/YearsOfUs';
 import { EventDetails } from './components/EventDetails';
 import { Venue } from './components/Venue';
 import { RSVPForm } from './components/RSVPForm';
@@ -64,28 +63,25 @@ export default function App() {
             {/* Section 2: Countdown & Save The Date (Directly after Hero) */}
             <Countdown />
 
-            {/* Section 3: Welcome to Our Story */}
+            {/* Section 3: Our Journey Photos with Years */}
+            <JourneyTimeline />
+
+            {/* Section 4: Welcome to Our Story */}
             <WelcomeStory />
 
-            {/* Section 4: Intro Video */}
+            {/* Section 5: Intro Video */}
             <IntroVideo />
 
-            {/* Section 5: Our Journey Photographic Carousel */}
-            <JourneyCarousel />
-
-            {/* Section 6: 25 Years of Us Editorial */}
-            <YearsOfUs />
-
-            {/* Section 7: Event Details & Itinerary */}
+            {/* Section 6: Event Details & Itinerary */}
             <EventDetails />
 
-            {/* Section 8: Venue & Location */}
+            {/* Section 7: Venue & Location */}
             <Venue />
 
-            {/* Section 9: RSVP Form */}
+            {/* Section 8: RSVP Form */}
             <RSVPForm />
 
-            {/* Section 10: Closing Celebration & Footer */}
+            {/* Section 9: Closing Celebration & Footer */}
             <Closing onRSVPClick={scrollToRSVP} />
           </div>
         </main>

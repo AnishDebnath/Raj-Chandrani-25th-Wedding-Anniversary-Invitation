@@ -27,22 +27,22 @@ export const Venue: React.FC = () => {
           </div>
 
           {/* Right: Information Card */}
-          <div className="col-span-5 bg-white/90 p-2.5 sm:p-3.5 flex flex-col justify-center items-center text-center">
-            <span className="font-cinzel text-[8.5px] sm:text-[9.5px] tracking-[0.2em] text-[#8C5D23] uppercase font-bold mb-0.5">
+          <div className="col-span-5 bg-white/95 p-2.5 sm:p-3.5 flex flex-col justify-center items-center text-center">
+            <span className="font-cinzel text-[9px] sm:text-[10px] tracking-[0.2em] text-[#5A320A] uppercase font-bold mb-0.5">
               VENUE
             </span>
 
-            <div className="flex items-center gap-1 text-xs sm:text-sm font-cinzel font-bold text-[#2A1E17] my-0.5">
+            <div className="flex items-center gap-1 text-xs sm:text-sm font-cinzel font-bold text-[#150C07] my-0.5">
               <MapPin className="w-3.5 h-3.5 text-[#B87C29] shrink-0" />
               <span>ADB MANOR</span>
             </div>
 
-            <p className="font-serif-luxury text-[8.5px] sm:text-[9.5px] text-[#5C4535] leading-snug mb-2.5">
+            <p className="font-serif-luxury text-[9px] sm:text-[10px] text-[#24150C] font-medium leading-snug mb-2.5">
               69/1 Purna Das Road
               <br />
               Kolkata - 700029
               <br />
-              <span className="italic text-[#8C5D23]">(Beside Triangular Park)</span>
+              <span className="italic text-[#5A320A] font-semibold">(Beside Triangular Park)</span>
             </p>
 
             <a

@@ -48,17 +48,17 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         {/* Text Hierarchy with Proper Airy Gaps */}
         <div className="relative pt-8 sm:pt-11 pb-8 px-4 flex flex-col items-center">
           {/* Line 1: Names */}
-          <span className="font-cinzel text-[clamp(10.5px,2.6vw,12.5px)] tracking-[0.38em] text-[#7A543A] uppercase font-semibold leading-none">
+          <span className="font-cinzel text-[clamp(11px,2.8vw,13px)] tracking-[0.38em] text-[#4A2610] uppercase font-bold leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
             RAJ &amp; CHANDRANI
           </span>
 
           {/* Line 2: Our Beginning (Proper vertical margin above & below) */}
-          <h1 className="font-script-romantic text-[clamp(2.85rem,7.5vh,4.25rem)] text-[#442A19] mt-3 sm:mt-4 mb-2 sm:mb-2.5 leading-[1.08] drop-shadow-xs whitespace-nowrap">
+          <h1 className="font-script-romantic text-[clamp(3rem,8vh,4.5rem)] text-[#1C0F08] mt-3 sm:mt-4 mb-2 sm:mb-2.5 leading-[1.08] drop-shadow-[0_1px_2px_rgba(255,255,255,0.5)] whitespace-nowrap font-normal">
             Our Beginning
           </h1>
 
           {/* Line 3: Date */}
-          <span className="font-serif-luxury text-[clamp(1.05rem,2.8vh,1.35rem)] text-[#7A543A] tracking-wider leading-none">
+          <span className="font-serif-luxury text-[clamp(1.1rem,3vh,1.4rem)] text-[#381F0E] font-semibold tracking-wider leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
             Jan 23, 2027
           </span>
         </div>

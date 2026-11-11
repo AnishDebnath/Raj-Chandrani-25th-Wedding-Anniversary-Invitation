@@ -11,17 +11,17 @@ export const WelcomeStory: React.FC = () => {
       <div className="max-w-md mx-auto flex flex-col items-center">
         
         {/* Kicker */}
-        <span className="font-cinzel text-[10.5px] sm:text-xs tracking-[0.32em] text-[#8C5D23] uppercase font-semibold leading-none mb-1.5">
+        <span className="font-cinzel text-[11px] sm:text-xs tracking-[0.32em] text-[#5A320A] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
           A SILVER MILESTONE
         </span>
 
         {/* Script Title */}
-        <h2 className="font-script-romantic text-4xl sm:text-5xl text-[#2A1E17] leading-tight my-1 drop-shadow-xs">
+        <h2 className="font-script-romantic text-4xl sm:text-5xl text-[#150C07] leading-tight my-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
           Welcome to our story
         </h2>
 
         {/* Paragraph */}
-        <p className="font-serif-luxury italic text-xs sm:text-[13.5px] text-[#5C4535] leading-relaxed max-w-[340px] sm:max-w-sm mt-2 mb-7">
+        <p className="font-serif-luxury italic text-xs sm:text-[13.5px] text-[#22140B] font-medium leading-relaxed max-w-[340px] sm:max-w-sm mt-2 mb-7">
           As we celebrate twenty-five beautiful years of love, laughter, and lifelong devotion, we warmly invite you to join us in this golden milestone. Your presence is the light that completes our celebration.
         </p>
 
