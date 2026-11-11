@@ -8,7 +8,7 @@ import { FamilyMessages } from './components/FamilyMessages';
 import { EventDetails } from './components/EventDetails';
 import { Venue } from './components/Venue';
 import { RSVPForm } from './components/RSVPForm';
-import { Closing } from './components/Closing';
+import { ShareInvitation } from './components/ShareInvitation';
 import { backgroundImg } from './assets';
 
 export default function App() {
@@ -81,8 +81,8 @@ export default function App() {
             {/* Section 8: RSVP Form */}
             <RSVPForm />
 
-            {/* Section 9: Closing Celebration & Footer */}
-            <Closing onRSVPClick={scrollToRSVP} />
+            {/* Section 9: Share Invitation */}
+            <ShareInvitation />
           </div>
         </main>
       </div>
