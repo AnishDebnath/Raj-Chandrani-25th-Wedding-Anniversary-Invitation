@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-script: 'Great Vibes', cursive, 'Brush Script MT';
+    --font-cinzel: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-serif-luxury {
+  font-family: var(--font-serif);
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans);
+}
+
+.font-script-romantic {
+  font-family: var(--font-script);
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+/* Custom luxury gold effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #F9E7B9 0%, #D8A25E 45%, #B87B2E 70%, #F3D99E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-3d-metallic {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCEAC5 15%, #E5B566 40%, #B87C29 70%, #E8C178 90%, #FFE9B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.7)) drop-shadow(0px 1px 2px rgba(255, 230, 160, 0.4));
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(135deg, rgba(232, 199, 142, 0.7), rgba(201, 154, 80, 0.3), rgba(232, 199, 142, 0.7)) 1;
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #C99A50 0%, #FFF3D6 50%, #C99A50 100%);
+  background-size: 200% auto;
+}
+
+/* Custom subtle bokeh styling */
+.bokeh-overlay {
+  background-image: 
+    radial-gradient(circle at 20% 15%, rgba(201, 154, 80, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 25%, rgba(74, 16, 27, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(201, 154, 80, 0.10) 0%, transparent 50%),
+    radial-gradient(circle at 10% 85%, rgba(232, 199, 142, 0.08) 0%, transparent 35%);
+}
+
+.ivory-floral-texture {
+  background-image:
+    radial-gradient(circle at 5% 5%, rgba(201, 154, 80, 0.06) 0%, transparent 25%),
+    radial-gradient(circle at 95% 95%, rgba(74, 16, 27, 0.05) 0%, transparent 30%);
+}
+
+/* Responsive safe area insets */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Hide scrollbar for mobile clean horizontal lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

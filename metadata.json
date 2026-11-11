@@ -1,0 +1,6 @@
+{
+  "name": "Raj & Chandrani - 25th Wedding Anniversary Invitation",
+  "description": "Premium mobile-first wedding anniversary invitation landing page celebrating 25 years of togetherness for Raj and Chandrani.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
