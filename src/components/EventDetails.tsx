@@ -1,70 +1,157 @@
-// ponytail: mobile-first event details with refined padding & margins
+// ponytail: mobile-first evening details with properly sized center timeline icons
 import React from 'react';
-import { Users, Mic, Cake, Utensils } from 'lucide-react';
+import { Calendar, Users, Mic, Cake, Utensils } from 'lucide-react';
+import { createGoogleCalendarUrl } from '../utils/rsvp';
 
-const EVENTS = [
+interface ItineraryItem {
+  time: string;
+  title: string;
+  subtitle?: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+const EVENTS: ItineraryItem[] = [
   {
-    icon: <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C5D23]" />,
+    time: '6:00 PM',
     title: 'Welcome & Reception',
-    time: '6:00 PM Onwards',
+    subtitle: 'ADB Manor',
+    description: 'We kindly ask guests to arrive by 6:00 PM as our celebration begins with welcome drinks and greetings.',
+    icon: <Users className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#542F07]" />,
   },
   {
-    icon: <Mic className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C5D23]" />,
-    title: 'Song Performance by Singers',
     time: '7:00 PM',
+    title: 'Live Musical Evening',
+    subtitle: 'Melodious Songs',
+    description: 'Soulful vocal performances by renowned singers to celebrate twenty-five years of love.',
+    icon: <Mic className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#542F07]" />,
   },
   {
-    icon: <Cake className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C5D23]" />,
-    title: 'Cake Cutting & Mala Bodol',
     time: '8:30 PM',
+    title: 'Mala Bodol & Cake Cutting',
+    subtitle: 'Sacred Rituals',
+    description: 'Traditional exchange of flower garlands followed by cutting our 25th anniversary silver jubilee cake.',
+    icon: <Cake className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#542F07]" />,
   },
   {
-    icon: <Utensils className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#8C5D23]" />,
-    title: 'Banquet Dinner',
     time: '9:00 PM',
+    title: 'Dinner & Celebrations',
+    subtitle: 'until late',
+    description: 'A lavish celebratory multi-cuisine banquet feast followed by joyful celebration under Kolkata skies.',
+    icon: <Utensils className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#542F07]" />,
   },
 ];
 
 export const EventDetails: React.FC = () => {
+  const calendarUrl = createGoogleCalendarUrl();
+
   return (
     <section
       id="event-details"
-      className="relative text-[#2A1E17] py-10 sm:py-12 px-4 overflow-hidden border-b border-[#D5C0A5]/50"
+      className="relative text-[#150C07] py-10 sm:py-12 px-3 sm:px-4 overflow-hidden border-b border-[#D5C0A5]/50 text-center"
     >
-      <div className="max-w-md mx-auto relative z-10 text-center">
+      <div className="max-w-md mx-auto flex flex-col items-center">
         
-        {/* Headings */}
-        <span className="font-cinzel text-xs sm:text-[13px] font-bold tracking-[0.28em] text-[#5A320A] uppercase block mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-          EVENT DETAILS
+        {/* Section Header */}
+        <span className="font-cinzel text-[11px] sm:text-xs tracking-[0.32em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          THE DAY
         </span>
-        <h2 className="font-serif-luxury italic text-xs sm:text-sm text-[#22140B] font-medium mt-1 mb-7">
-          Join us for an evening of love, memories and celebration
+
+        <h2 className="font-script-romantic text-4xl sm:text-5xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          Evening Details
         </h2>
 
-        {/* 4-Column Layout with Delicate Dividers */}
-        <div className="grid grid-cols-4 divide-x divide-[#D5C0A5]/60">
-          {EVENTS.map((event, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col items-center text-center px-1.5 sm:px-2"
-            >
-              {/* Circular Gold Outlined Badge */}
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-[#D5C0A5] bg-white/90 backdrop-blur-[2px] flex items-center justify-center mb-2 shadow-xs shrink-0">
-                {event.icon}
-              </div>
+        <p className="font-serif-luxury italic text-xs sm:text-[13.5px] text-[#22130A] font-semibold leading-relaxed max-w-[340px] sm:max-w-sm mt-2 mb-10 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          We&apos;ve planned a beautiful evening in Kolkata. Here&apos;s what to expect as we celebrate from sunset to starlight.
+        </p>
 
-              {/* Title */}
-              <h3 className="font-serif-luxury text-[9.5px] sm:text-[11px] font-bold text-[#150C07] leading-tight min-h-[32px] flex items-center justify-center">
-                {event.title}
-              </h3>
+        {/* Timeline with Center Milestone Icons and High-Contrast Text */}
+        <div className="relative w-full max-w-[390px] sm:max-w-[420px] mx-auto mb-10">
+          
+          {/* Continuous Center Hairline */}
+          <div className="absolute top-4 bottom-6 left-1/2 -translate-x-1/2 w-px bg-[#C8B39B] pointer-events-none" />
 
-              {/* Time */}
-              <span className="font-sans-clean text-[8.5px] sm:text-[10px] font-bold text-[#5A320A] mt-1.5 whitespace-nowrap">
-                {event.time}
-              </span>
-            </div>
-          ))}
+          {/* Timeline Nodes */}
+          <div className="space-y-10 sm:space-y-12 relative z-10">
+            {EVENTS.map((event, idx) => {
+              const isLeft = idx % 2 === 0;
+
+              return (
+                <div key={idx} className="relative flex items-start">
+                  
+                  {/* Left Column (50% width) */}
+                  <div className={`w-1/2 pr-7 sm:pr-8 text-right ${isLeft ? 'block' : 'invisible'}`}>
+                    {isLeft && (
+                      <div>
+                        <span className="font-cinzel text-xs sm:text-[13px] font-bold text-[#0F0804] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                          {event.time}
+                        </span>
+
+                        <h3 className="font-serif-luxury font-bold text-sm sm:text-base text-[#0F0804] leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                          {event.title}
+                        </h3>
+
+                        {event.subtitle && (
+                          <span className="font-serif-luxury italic text-xs text-[#542F07] font-semibold block leading-tight my-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                            {event.subtitle}
+                          </span>
+                        )}
+
+                        <p className="font-serif-luxury text-xs sm:text-[13px] text-[#1C1108] leading-relaxed mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-semibold">
+                          {event.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Center Timeline Icon Badge */}
+                  <div className="absolute left-1/2 -translate-x-1/2 top-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-[#B87C29] bg-[#FAF3E8] shadow-sm flex items-center justify-center shrink-0 z-20 ring-4 ring-[#F4DCB3]">
+                    {event.icon}
+                  </div>
+
+                  {/* Right Column (50% width) */}
+                  <div className={`w-1/2 pl-7 sm:pl-8 text-left ${!isLeft ? 'block' : 'invisible'}`}>
+                    {!isLeft && (
+                      <div>
+                        <span className="font-cinzel text-xs sm:text-[13px] font-bold text-[#0F0804] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                          {event.time}
+                        </span>
+
+                        <h3 className="font-serif-luxury font-bold text-sm sm:text-base text-[#0F0804] leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                          {event.title}
+                        </h3>
+
+                        {event.subtitle && (
+                          <span className="font-serif-luxury italic text-xs text-[#542F07] font-semibold block leading-tight my-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                            {event.subtitle}
+                          </span>
+                        )}
+
+                        <p className="font-serif-luxury text-xs sm:text-[13px] text-[#1C1108] leading-relaxed mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-semibold">
+                          {event.description}
+                        </p>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              );
+            })}
+          </div>
+
         </div>
+
+        {/* Add to Calendar Button: Same as Countdown button */}
+        <a
+          href={calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#150C07] font-sans-clean text-xs font-bold shadow-xs transition-all hover:scale-105 active:scale-95 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] mt-2"
+        >
+          <Calendar className="w-3.5 h-3.5 text-[#B87C29]" />
+          <span>Add to Calendar</span>
+        </a>
+
       </div>
     </section>
   );
