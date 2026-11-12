@@ -1,7 +1,7 @@
 // ponytail: cinematic intro video with matching mobile container centered and background image on both sides
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { introVideo, backgroundImg } from '../assets';
+import { introVideo, introPoster, backgroundImg } from '../assets';
 
 interface IntroVideoProps {
   onComplete: () => void;
@@ -10,47 +10,49 @@ interface IntroVideoProps {
 export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [hasStarted, setHasStarted] = useState(false);
-
-  // Prime the first frame so it is visible immediately on load
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-    }
-  }, []);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isEnding, setIsEnding] = useState(false);
 
   const handleStartPlay = async () => {
-    if (!videoRef.current) {
+    const video = videoRef.current;
+    if (!video) {
       onComplete();
       return;
     }
 
+    setHasStarted(true);
+
     try {
-      videoRef.current.muted = false;
-      await videoRef.current.play();
-      setHasStarted(true);
+      video.muted = false;
+      await video.play();
     } catch {
-      // Fallback if browser blocks unmuted audio on first interaction
+      // Fallback if browser blocks unmuted audio on first gesture
       try {
-        if (videoRef.current) {
-          videoRef.current.muted = true;
-          await videoRef.current.play();
-          setHasStarted(true);
-        }
+        video.muted = true;
+        await video.play();
       } catch {
         onComplete();
       }
     }
   };
 
+  const handleEnded = () => {
+    if (isEnding) return;
+    setIsEnding(true);
+    if (videoRef.current) {
+      try {
+        videoRef.current.pause();
+      } catch {
+        // Ignore pause errors on exit
+      }
+    }
+    onComplete();
+  };
+
   const handleScreenClick = () => {
+    if (isEnding) return;
     if (!hasStarted) {
       handleStartPlay();
-    } else if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-      }
     }
   };
 
@@ -60,10 +62,14 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
       initial={{ opacity: 1 }}
       exit={{
         opacity: 0,
-        transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+        filter: 'blur(8px)',
+        scale: 1.03,
+        transition: { duration: 1.4, ease: [0.4, 0, 0.2, 1] },
       }}
       onClick={handleScreenClick}
-      className="fixed inset-0 z-50 bg-[#F4DCB3] flex justify-center overflow-hidden cursor-pointer select-none touch-none"
+      className={`fixed inset-0 z-50 bg-[#F4DCB3] flex justify-center overflow-hidden select-none ${
+        isEnding ? 'pointer-events-none' : 'cursor-pointer'
+      }`}
       style={{
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: '100% auto',
@@ -72,15 +78,34 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
       }}
       aria-label="Play Intro Video"
     >
-      <div className="w-full max-w-[450px] h-full relative bg-black shadow-2xl overflow-hidden sm:border-x border-[#D5C0A5]/70 flex items-center justify-center">
+      <div className="w-full max-w-[450px] h-full relative bg-[#F4DCB3] shadow-2xl overflow-hidden sm:border-x border-[#D5C0A5]/70 flex items-center justify-center">
+        {/* Native Video Element */}
         <video
           ref={videoRef}
           src={introVideo}
+          poster={introPoster}
           playsInline
           preload="auto"
-          onEnded={onComplete}
-          className="w-full h-full object-cover bg-black"
+          muted={!hasStarted}
+          onPlaying={() => setIsPlaying(true)}
+          onEnded={handleEnded}
+          className="w-full h-full object-cover"
         />
+
+        {/* Video Cover Image (intro-poster.png) shown until video starts actively rendering frames */}
+        <AnimatePresence>
+          {!isPlaying && (
+            <motion.img
+              src={introPoster}
+              alt="Video Cover"
+              initial={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="absolute inset-0 w-full h-full object-cover z-10 pointer-events-none"
+              loading="eager"
+            />
+          )}
+        </AnimatePresence>
 
         {/* 'Click to Open' indicator at 68% height with breathing whole-element opacity */}
         <AnimatePresence>

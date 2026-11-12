@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ChevronUp } from 'lucide-react';
-import { footerCoupleImg } from '../assets';
+import { footerImg } from '../assets';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -21,10 +21,11 @@ export const Footer: React.FC = () => {
       >
         {/* Couple Photograph with bidirectional mask blend */}
         <img
-          src={footerCoupleImg}
+          src={footerImg}
           alt="Raj & Chandrani - 25 Years of Togetherness"
           className="w-full h-full object-cover object-[center_25%]"
           loading="lazy"
+          decoding="async"
           style={{
             maskImage:
               'linear-gradient(to bottom, transparent 0%, black 10%, black 65%, transparent 100%)',

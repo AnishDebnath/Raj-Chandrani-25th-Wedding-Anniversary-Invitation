@@ -1,18 +1,33 @@
-// ponytail: mobile-first wedding anniversary invitation app with interactive intro video & Framer Motion transitions
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+// ponytail: mobile-first wedding anniversary invitation app with code-split lazy loading
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
-import { WelcomeStory } from './components/WelcomeStory';
-// import { JourneyTimeline } from './components/JourneyTimeline';
-import { FamilyMessages } from './components/FamilyMessages';
-import { EventDetails } from './components/EventDetails';
-import { Venue } from './components/Venue';
-import { RSVPForm } from './components/RSVPForm';
-import { ShareInvitation } from './components/ShareInvitation';
-import { Footer } from './components/Footer';
 import { backgroundImg } from './assets';
+
+// ponytail: lazy load below-the-fold components to reduce initial JS payload and fast load
+const WelcomeStory = lazy(() =>
+  import('./components/WelcomeStory').then((m) => ({ default: m.WelcomeStory }))
+);
+const FamilyMessages = lazy(() =>
+  import('./components/FamilyMessages').then((m) => ({ default: m.FamilyMessages }))
+);
+const EventDetails = lazy(() =>
+  import('./components/EventDetails').then((m) => ({ default: m.EventDetails }))
+);
+const Venue = lazy(() =>
+  import('./components/Venue').then((m) => ({ default: m.Venue }))
+);
+const RSVPForm = lazy(() =>
+  import('./components/RSVPForm').then((m) => ({ default: m.RSVPForm }))
+);
+const ShareInvitation = lazy(() =>
+  import('./components/ShareInvitation').then((m) => ({ default: m.ShareInvitation }))
+);
+const Footer = lazy(() =>
+  import('./components/Footer').then((m) => ({ default: m.Footer }))
+);
 
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -25,17 +40,39 @@ export default function App() {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
 
-  // Lock body scroll while intro is showing to avoid background drift
+  // Keep visible scrollbar intact while disabling scroll function during intro
   useEffect(() => {
-    if (showIntro) {
-      document.body.style.overflow = 'hidden';
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    } else {
-      document.body.style.overflow = '';
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    }
+    if (!showIntro) return;
+
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+    };
+
+    const preventKeyScroll = (e: KeyboardEvent) => {
+      const blockedKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Spacebar'];
+      if (blockedKeys.includes(e.key)) {
+        e.preventDefault();
+      }
+    };
+
+    const lockScrollPosition = () => {
+      if (window.scrollY !== 0 || window.scrollX !== 0) {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }
+    };
+
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('touchmove', preventScroll, { passive: false });
+    window.addEventListener('keydown', preventKeyScroll, { passive: false });
+    window.addEventListener('scroll', lockScrollPosition, { passive: true });
+
     return () => {
-      document.body.style.overflow = '';
+      window.removeEventListener('wheel', preventScroll);
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('keydown', preventKeyScroll);
+      window.removeEventListener('scroll', lockScrollPosition);
     };
   }, [showIntro]);
 
@@ -72,7 +109,10 @@ export default function App() {
       </AnimatePresence>
 
       {/* Main Website Content: Mobile width in center with luxury borders & background showing on both sides */}
-      <div
+      <motion.div
+        initial={{ opacity: 0.3 }}
+        animate={{ opacity: showIntro ? 0.3 : 1 }}
+        transition={{ duration: 1.4, ease: [0.4, 0, 0.2, 1] }}
         className="w-full max-w-[450px] min-h-screen shadow-2xl relative flex flex-col sm:border-x border-[#D5C0A5]/70"
         style={{
           backgroundImage: `url(${backgroundImg})`,
@@ -98,32 +138,35 @@ export default function App() {
             {/* Section 2: Countdown & Save The Date (Directly after Hero) */}
             <Countdown />
 
-            {/* Section 3: Welcome to Our Story */}
-            <WelcomeStory />
+            {/* Below-the-fold sections loaded asynchronously with zero layout shift */}
+            <Suspense fallback={null}>
+              {/* Section 3: Welcome to Our Story */}
+              <WelcomeStory />
 
-            {/* Section 4: Our Journey Photos with Years (Temporarily commented out) */}
-            {/* <JourneyTimeline /> */}
+              {/* Section 4: Our Journey Photos with Years (Temporarily commented out) */}
+              {/* <JourneyTimeline /> */}
 
-            {/* Section 5: Family Messages to Guests */}
-            <FamilyMessages />
+              {/* Section 5: Family Messages to Guests */}
+              <FamilyMessages />
 
-            {/* Section 5: Event Details & Itinerary */}
-            <EventDetails />
+              {/* Section 6: Event Details & Itinerary */}
+              <EventDetails />
 
-            {/* Section 6: Venue & Location */}
-            <Venue />
+              {/* Section 7: Venue & Location */}
+              <Venue />
 
-            {/* Section 7: RSVP Form */}
-            <RSVPForm />
+              {/* Section 8: RSVP Form */}
+              <RSVPForm />
 
-            {/* Section 8: Share Invitation */}
-            <ShareInvitation />
+              {/* Section 9: Share Invitation */}
+              <ShareInvitation />
 
-            {/* Section 9: Photographic Couple Footer */}
-            <Footer />
+              {/* Section 10: Photographic Couple Footer */}
+              <Footer />
+            </Suspense>
           </div>
         </main>
-      </div>
+      </motion.div>
     </div>
   );
 }

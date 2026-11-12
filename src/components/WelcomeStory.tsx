@@ -2,46 +2,18 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { journey1Img, journey2Img, journey3Img, heroCoupleImg } from '../assets';
-
-interface PhotoItem {
-  id: number;
-  img: string;
-  alt: string;
-}
-
-const PHOTOS: PhotoItem[] = [
-  {
-    id: 1,
-    img: journey1Img,
-    alt: 'Beginning in Kolkata',
-  },
-  {
-    id: 2,
-    img: journey2Img,
-    alt: 'Building Our Life Together',
-  },
-  {
-    id: 3,
-    img: journey3Img,
-    alt: 'A Silver Bond of Love',
-  },
-  {
-    id: 4,
-    img: heroCoupleImg,
-    alt: 'Celebrating 25 Beautiful Years',
-  },
-];
+import { storyPhotos } from '../assets';
 
 export const WelcomeStory: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const total = storyPhotos.length;
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + PHOTOS.length) % PHOTOS.length);
+    setCurrentIndex((prev) => (prev - 1 + total) % total);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % PHOTOS.length);
+    setCurrentIndex((prev) => (prev + 1) % total);
   };
 
   return (
@@ -85,7 +57,7 @@ export const WelcomeStory: React.FC = () => {
       >
         {/* Cards Track with drag / swipe support - shadow fully contained inside div */}
         <motion.div
-          className="relative w-full h-[216px] sm:h-[224px] flex items-center justify-center overflow-hidden select-none cursor-grab active:cursor-grabbing py-2"
+          className="relative w-full h-[280px] sm:h-[295px] flex items-center justify-center overflow-hidden select-none cursor-grab active:cursor-grabbing py-3"
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={0.2}
@@ -97,8 +69,8 @@ export const WelcomeStory: React.FC = () => {
             }
           }}
         >
-          {PHOTOS.map((photo, idx) => {
-            const total = PHOTOS.length;
+          {storyPhotos.map((photo, idx) => {
+            const total = storyPhotos.length;
             let diff = (idx - currentIndex + total) % total;
             if (diff > total / 2) diff -= total; // -1, 0, 1, 2
 
@@ -159,7 +131,7 @@ export const WelcomeStory: React.FC = () => {
                   if (isLeft) handlePrev();
                   if (isRight) handleNext();
                 }}
-                className={`absolute top-1/2 -translate-y-1/2 w-[58%] aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer transition-shadow ${
+                className={`absolute top-1/2 -translate-y-1/2 w-[58%] aspect-square rounded-2xl overflow-hidden cursor-pointer transition-shadow ${
                   isCenter
                     ? 'border-2 border-[#B87C29] ring-2 ring-[#F4DCB3] shadow-[0_4px_16px_rgba(84,47,7,0.24)]'
                     : 'border-2 border-[#D5C0A5]/90 shadow-[0_3px_10px_rgba(84,47,7,0.18)] hover:opacity-100'
@@ -168,8 +140,9 @@ export const WelcomeStory: React.FC = () => {
                 <img
                   src={photo.img}
                   alt={photo.alt}
-                  className="w-full h-full object-cover object-top pointer-events-none"
+                  className="w-full h-full object-cover object-center pointer-events-none"
                   loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
             );
@@ -197,17 +170,17 @@ export const WelcomeStory: React.FC = () => {
             </motion.button>
 
             {/* Stepper Dots Indicator */}
-            <div className="flex items-center justify-center gap-1.5 px-1">
-              {PHOTOS.map((_, idx) => (
+            <div className="flex items-center justify-center gap-1 px-1">
+              {storyPhotos.map((_, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setCurrentIndex(idx)}
                   aria-label={`View photo ${idx + 1}`}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                     currentIndex === idx
-                      ? 'w-5 bg-[#542F07] shadow-xs'
-                      : 'w-2 bg-[#C5A77B]/60 hover:bg-[#8C5D23]/60'
+                      ? 'w-4 bg-[#542F07] shadow-xs'
+                      : 'w-1.5 bg-[#C5A77B]/60 hover:bg-[#8C5D23]/60'
                   }`}
                 />
               ))}

@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Info, Clock, Globe, Calendar } from 'lucide-react';
 import { createGoogleCalendarUrl } from '../utils/rsvp';
-import { venueAdbManorImg } from '../assets';
+import { venueImg } from '../assets';
 
 export const Venue: React.FC = () => {
   const addressText = '69/1 Purna Das Road, Kolkata - 700029';
@@ -49,10 +49,11 @@ export const Venue: React.FC = () => {
           {/* Venue Photograph */}
           <div className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden border border-[#C5A77B]/60 shadow-xs">
             <img
-              src={venueAdbManorImg}
+              src={venueImg}
               alt="ADB Manor Venue"
               className="w-full h-full object-cover"
               loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
           </div>

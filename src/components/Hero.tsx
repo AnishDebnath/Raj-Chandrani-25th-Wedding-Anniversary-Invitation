@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { heroCoupleImg } from '../assets';
+import { heroImg } from '../assets';
 
 interface HeroProps {
   onExploreClick?: () => void;
@@ -22,10 +22,12 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         className="absolute inset-0 z-0 w-full h-full"
       >
         <img
-          src={heroCoupleImg}
+          src={heroImg}
           alt="Raj & Chandrani"
           className="w-full h-full object-cover object-[center_32%]"
           loading="eager"
+          fetchPriority="high"
+          decoding="sync"
         />
 
         {/* Bottom subtle shadow: Ensures location & scroll button are crisp */}
