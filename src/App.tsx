@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
+import { WelcomeStory } from './components/WelcomeStory';
 import { JourneyTimeline } from './components/JourneyTimeline';
 import { FamilyMessages } from './components/FamilyMessages';
 import { EventDetails } from './components/EventDetails';
@@ -74,7 +75,10 @@ export default function App() {
             {/* Section 2: Countdown & Save The Date (Directly after Hero) */}
             <Countdown />
 
-            {/* Section 3: Our Journey Photos with Years */}
+            {/* Section 3: Welcome to Our Story */}
+            <WelcomeStory />
+
+            {/* Section 4: Our Journey Photos with Years */}
             <JourneyTimeline />
 
             {/* Section 4: Family Messages to Guests */}
