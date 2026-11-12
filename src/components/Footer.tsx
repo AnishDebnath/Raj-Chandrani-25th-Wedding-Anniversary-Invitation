@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="footer" className="relative w-full overflow-hidden -mt-3 sm:-mt-4">
+    <footer id="footer" className="relative w-full overflow-hidden">
       {/* Full-width photo extending directly to the bottom edge with 9:16 aspect ratio */}
       <div className="relative w-full aspect-[9/16] overflow-hidden">
         {/* Couple Photograph with bidirectional mask blend */}

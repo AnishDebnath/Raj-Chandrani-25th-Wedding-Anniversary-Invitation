@@ -72,7 +72,7 @@ export const ShareInvitation: React.FC = () => {
   return (
     <section
       id="share"
-      className="relative text-[#2A1E17] pt-10 sm:pt-12 pb-6 sm:pb-8 px-4 overflow-hidden text-center"
+      className="relative text-[#2A1E17] pt-10 sm:pt-12 pb-8 sm:pb-12 mb-6 sm:mb-8 px-4 overflow-hidden text-center"
     >
       <div className="max-w-sm mx-auto relative z-10 flex flex-col items-center">
         {/* Section Header */}
