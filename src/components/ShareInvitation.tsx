@@ -72,31 +72,31 @@ export const ShareInvitation: React.FC = () => {
   return (
     <section
       id="share"
-      className="relative text-[#2A1E17] pt-10 sm:pt-12 pb-8 sm:pb-12 mb-6 sm:mb-8 px-4 overflow-hidden text-center"
+      className="relative text-[#2A1E17] pt-10 sm:pt-14 md:pt-16 pb-8 sm:pb-12 md:pb-14 mb-6 sm:mb-8 px-3 sm:px-4 md:px-6 overflow-hidden text-center"
     >
-      <div className="max-w-sm mx-auto relative z-10 flex flex-col items-center">
+      <div className="max-w-sm md:max-w-2xl lg:max-w-3xl mx-auto relative z-10 flex flex-col items-center">
         {/* Section Header */}
-        <span className="font-cinzel text-[11px] sm:text-xs tracking-[0.32em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+        <span className="font-cinzel text-[11px] sm:text-xs md:text-sm lg:text-[15px] tracking-[0.32em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
           SPREAD THE JOY
         </span>
 
-        <h2 className="font-script-romantic text-4xl sm:text-5xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+        <h2 className="font-script-romantic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
           Share the Celebration
         </h2>
 
-        <p className="font-serif-luxury italic text-xs sm:text-[13.5px] text-[#22130A] font-semibold leading-relaxed max-w-[340px] sm:max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+        <p className="font-serif-luxury italic text-xs sm:text-sm md:text-base lg:text-lg text-[#22130A] font-semibold leading-relaxed max-w-[290px] sm:max-w-sm md:max-w-xl lg:max-w-2xl mt-2 mb-7 md:mb-9 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
           Invite family and dear friends to join our 25th wedding anniversary celebration.
         </p>
 
-        {/* 4 Share Buttons directly on parchment without wrapper card div */}
-        <div className="w-full grid grid-cols-2 gap-2.5 sm:gap-3">
+        {/* 4 Share Buttons directly on parchment without wrapper card div - 4 cols on tablet/desktop */}
+        <div className="w-full max-w-[295px] sm:max-w-sm md:max-w-2xl lg:max-w-3xl grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-3.5">
           {/* 1. WhatsApp Button */}
           <button
             type="button"
             onClick={handleWhatsAppShare}
-            className="py-3 px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 sm:py-3 md:py-3.5 px-2 sm:px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-[11px] sm:text-xs md:text-sm lg:text-base tracking-wider flex items-center justify-center gap-1.5 sm:gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
           >
-            <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0" />
+            <MessageCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#25D366] shrink-0" />
             <span>WhatsApp</span>
           </button>
 
@@ -104,9 +104,9 @@ export const ShareInvitation: React.FC = () => {
           <button
             type="button"
             onClick={handleFacebookShare}
-            className="py-3 px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 sm:py-3 md:py-3.5 px-2 sm:px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-[11px] sm:text-xs md:text-sm lg:text-base tracking-wider flex items-center justify-center gap-1.5 sm:gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
           >
-            <Facebook className="w-4 h-4 text-[#1877F2] shrink-0" />
+            <Facebook className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#1877F2] shrink-0" />
             <span>Facebook</span>
           </button>
 
@@ -114,9 +114,9 @@ export const ShareInvitation: React.FC = () => {
           <button
             type="button"
             onClick={handleInstagramShare}
-            className="py-3 px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 sm:py-3 md:py-3.5 px-2 sm:px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-[11px] sm:text-xs md:text-sm lg:text-base tracking-wider flex items-center justify-center gap-1.5 sm:gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
           >
-            <Instagram className="w-4 h-4 text-[#E4405F] shrink-0" />
+            <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E4405F] shrink-0" />
             <span>Instagram</span>
           </button>
 
@@ -124,16 +124,16 @@ export const ShareInvitation: React.FC = () => {
           <button
             type="button"
             onClick={handleCopyLink}
-            className="py-3 px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 sm:py-3 md:py-3.5 px-2 sm:px-3 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-[11px] sm:text-xs md:text-sm lg:text-base tracking-wider flex items-center justify-center gap-1.5 sm:gap-2 shadow-xs hover:shadow-sm active:scale-[0.98] transition-all cursor-pointer whitespace-nowrap"
           >
             {copied ? (
               <>
-                <Check className="w-4 h-4 text-emerald-700 shrink-0" />
+                <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-700 shrink-0" />
                 <span className="text-emerald-800">Copied!</span>
               </>
             ) : (
               <>
-                <Copy className="w-4 h-4 text-[#784A15] shrink-0" />
+                <Copy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#784A15] shrink-0" />
                 <span>Copy Link</span>
               </>
             )}

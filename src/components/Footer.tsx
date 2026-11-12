@@ -10,47 +10,49 @@ export const Footer: React.FC = () => {
 
   return (
     <footer id="footer" className="relative w-full overflow-hidden">
-      {/* Full-width photo extending directly to the bottom edge with 9:16 aspect ratio */}
-      <div className="relative w-full aspect-[9/16] overflow-hidden">
+      {/* Full-width photo: 9:16 on mobile, with increased height showcase on tablet (760px) and laptop (840px) */}
+      <div className="relative w-full aspect-[9/16] sm:aspect-auto sm:h-[680px] md:h-[760px] lg:h-[840px] overflow-hidden">
         {/* Couple Photograph with bidirectional mask blend */}
         <img
           src={footerCoupleImg}
           alt="Raj & Chandrani - 25 Years of Togetherness"
-          className="w-full h-full object-cover object-bottom"
+          className="w-full h-full object-cover object-[center_25%] md:object-[center_20%]"
           loading="lazy"
           style={{
-            maskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 62%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 10%, black 62%, transparent 100%)',
+            maskImage:
+              'linear-gradient(to bottom, transparent 0%, black 10%, black 65%, transparent 100%)',
+            WebkitMaskImage:
+              'linear-gradient(to bottom, transparent 0%, black 10%, black 65%, transparent 100%)',
           }}
         />
 
         {/* Top Feathered Gradient Blend */}
         <div
-          className="absolute inset-x-0 top-0 h-20 sm:h-24 z-10 pointer-events-none"
+          className="absolute inset-x-0 top-0 h-20 sm:h-24 md:h-28 z-10 pointer-events-none"
           style={{
             background:
               'linear-gradient(to bottom, #F4DCB3 0%, rgba(244, 220, 179, 0.9) 25%, rgba(244, 220, 179, 0.5) 60%, transparent 100%)',
           }}
         />
 
-        {/* Increased Height Bottom Feathered Gradient Blend */}
+        {/* Bottom Feathered Gradient Blend */}
         <div
-          className="absolute inset-x-0 bottom-0 h-60 sm:h-72 z-10 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-60 sm:h-72 md:h-80 z-10 pointer-events-none"
           style={{
             background:
-              'linear-gradient(to top, #F4DCB3 0%, #F4DCB3 38%, rgba(244, 220, 179, 0.94) 62%, rgba(244, 220, 179, 0.5) 85%, transparent 100%)',
+              'linear-gradient(to top, #F4DCB3 0%, #F4DCB3 42%, rgba(244, 220, 179, 0.95) 65%, rgba(244, 220, 179, 0.5) 85%, transparent 100%)',
           }}
         />
 
         {/* Bottom text and button sitting on the expanded parchment blend */}
-        <div className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 pt-16 px-4 flex flex-col items-center text-center z-20">
-          <Heart className="w-4 h-4 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90 drop-shadow-xs" />
+        <div className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 md:pb-12 pt-16 px-3 sm:px-4 md:px-6 flex flex-col items-center text-center z-20">
+          <Heart className="w-4 h-4 md:w-5 md:h-5 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90 drop-shadow-xs" />
           
-          <span className="font-cinzel text-xs sm:text-[13.5px] font-bold tracking-[0.28em] uppercase text-[#180E08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+          <span className="font-cinzel text-[11.5px] sm:text-sm md:text-base lg:text-lg font-bold tracking-[0.22em] sm:tracking-[0.28em] md:tracking-[0.35em] uppercase text-[#180E08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             25 Years &amp; A Lifetime To Go
           </span>
 
-          <p className="font-serif-luxury italic text-xs sm:text-[13px] text-[#542F07] mt-1.5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-[11px] sm:text-xs md:text-sm lg:text-base text-[#542F07] mt-1.5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
             Raj &amp; Chandrani · ADB Manor Kolkata · 23 January 2027
           </p>
 
@@ -59,9 +61,9 @@ export const Footer: React.FC = () => {
             type="button"
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="mt-4 inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#BFA075] bg-[#FAF2E3]/95 hover:bg-[#F3E2C7] active:scale-95 text-[#2A1E17] text-[10.5px] sm:text-xs font-sans-clean font-bold tracking-[0.2em] uppercase transition-all shadow-xs cursor-pointer"
+            className="mt-4 md:mt-5 inline-flex items-center gap-1.5 px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full border border-[#BFA075] bg-[#FAF2E3]/95 hover:bg-[#F3E2C7] active:scale-95 text-[#2A1E17] text-[10.5px] sm:text-xs md:text-sm lg:text-base font-sans-clean font-bold tracking-[0.2em] md:tracking-[0.25em] uppercase transition-all shadow-xs cursor-pointer hover:shadow-md"
           >
-            <ChevronUp className="w-3.5 h-3.5 text-[#784A15]" />
+            <ChevronUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#784A15]" />
             <span>BACK TO TOP</span>
           </button>
         </div>
