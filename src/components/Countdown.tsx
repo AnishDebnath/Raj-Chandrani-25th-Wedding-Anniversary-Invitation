@@ -172,20 +172,27 @@ export const Countdown: React.FC = () => {
           ))}
         </motion.div>
 
-        {/* Action Button: Add to Calendar directly on parchment with all-time gentle breathing */}
-        <motion.a
-          href={calendarUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          animate={{ y: [0, -2.5, 0] }}
-          transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-          className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#150C07] font-sans-clean text-xs font-bold shadow-xs transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+        {/* Action Button: Add to Calendar with appear animation & gentle breathing */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-20px' }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
-          <Calendar className="w-3.5 h-3.5 text-[#B87C29]" />
-          <span>Add to Calendar</span>
-        </motion.a>
+          <motion.a
+            href={calendarUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            animate={{ y: [0, -2.5, 0] }}
+            transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#150C07] font-sans-clean text-xs font-bold shadow-xs transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+          >
+            <Calendar className="w-3.5 h-3.5 text-[#B87C29]" />
+            <span>Add to Calendar</span>
+          </motion.a>
+        </motion.div>
 
       </div>
     </section>

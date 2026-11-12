@@ -97,19 +97,20 @@ export const ShareInvitation: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* 4 Share Buttons in 2x2 grid consistent on all devices */}
-        <div className="w-full grid grid-cols-2 gap-2.5 sm:gap-3">
+        {/* 4 Share Buttons in 2x2 grid with appear animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
+          className="w-full grid grid-cols-2 gap-2.5 sm:gap-3"
+        >
           {/* 1. WhatsApp Button */}
           <motion.button
             type="button"
             onClick={handleWhatsAppShare}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.05 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            animate={{ y: [0, -2, 0] }}
             className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
@@ -120,13 +121,8 @@ export const ShareInvitation: React.FC = () => {
           <motion.button
             type="button"
             onClick={handleFacebookShare}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.12 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            animate={{ y: [0, -2, 0] }}
             className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             <Facebook className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
@@ -137,13 +133,8 @@ export const ShareInvitation: React.FC = () => {
           <motion.button
             type="button"
             onClick={handleInstagramShare}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.19 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            animate={{ y: [0, -2, 0] }}
             className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             <Instagram className="w-3.5 h-3.5 text-[#E4405F] shrink-0" />
@@ -154,13 +145,8 @@ export const ShareInvitation: React.FC = () => {
           <motion.button
             type="button"
             onClick={handleCopyLink}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.26 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            animate={{ y: [0, -2, 0] }}
             className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             {copied ? (
@@ -175,7 +161,7 @@ export const ShareInvitation: React.FC = () => {
               </>
             )}
           </motion.button>
-        </div>
+        </motion.div>
 
         {/* Toast / Feedback Notice */}
         {toast && (

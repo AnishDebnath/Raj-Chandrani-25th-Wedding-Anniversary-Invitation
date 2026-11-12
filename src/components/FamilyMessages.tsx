@@ -88,35 +88,35 @@ export const FamilyMessages: React.FC = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-          className="relative w-full max-w-md mx-auto"
+          className="relative w-full max-w-[330px] sm:max-w-[350px] mx-auto"
         >
           {/* Background Card Layer (Stack effect) */}
           <div className="absolute inset-0 rounded-3xl border border-[#C5A77B]/50 bg-[#E8D4B4]/40 transform translate-y-2 translate-x-1.5 -z-10 shadow-xs" />
 
           {/* Foreground Main Card with warm theme-matched parchment background */}
-          <div className="relative rounded-3xl border border-[#C5A77B]/70 bg-gradient-to-b from-[#FBF2E3]/95 via-[#F4E4CB]/90 to-[#EAD4B4]/95 backdrop-blur-md p-6 sm:p-8 shadow-[0_10px_25px_rgba(84,47,7,0.12)] flex flex-col items-center text-center">
+          <div className="relative rounded-3xl border border-[#C5A77B]/70 bg-gradient-to-b from-[#FBF2E3]/95 via-[#F4E4CB]/90 to-[#EAD4B4]/95 backdrop-blur-md p-4 sm:p-5 shadow-[0_10px_25px_rgba(84,47,7,0.12)] flex flex-col items-center text-center">
             {/* Card Kicker */}
             <span className="font-cinzel text-xs tracking-[0.22em] text-[#8C5D23] font-bold uppercase mb-1">
               {current.chapter} · {current.relation}
             </span>
 
             {/* Script Title */}
-            <h3 className="font-script-romantic text-2xl text-[#150C07] leading-tight my-1.5">
+            <h3 className="font-script-romantic text-2xl text-[#150C07] leading-tight my-1">
               {current.title}
             </h3>
 
             {/* Message Excerpt / Full Body */}
-            <p className="font-serif-luxury text-sm text-[#2E1E14] leading-relaxed my-3 min-h-[90px] flex items-center justify-center">
+            <p className="font-serif-luxury text-sm text-[#2E1E14] leading-relaxed my-2.5 min-h-[78px] flex items-center justify-center">
               &ldquo;{isExpanded ? current.fullMessage : current.excerpt}&rdquo;
             </p>
 
             {/* Author Attribution */}
-            <span className="font-cinzel text-xs font-bold tracking-wider text-[#542F07] mb-5">
+            <span className="font-cinzel text-xs font-bold tracking-wider text-[#542F07] mb-3.5">
               — {current.name}
             </span>
 
             {/* Stepper Dots with all-time active breathing animation */}
-            <div className="flex items-center justify-center gap-1.5 mb-5">
+            <div className="flex items-center justify-center gap-1.5 mb-3.5">
               {MESSAGES.map((_, idx) => (
                 <motion.button
                   key={idx}
@@ -143,7 +143,7 @@ export const FamilyMessages: React.FC = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleNext}
-              className="w-full max-w-sm py-3 px-4 rounded-xl bg-[#251D24] hover:bg-[#161115] text-white font-sans-clean font-bold text-xs tracking-widest uppercase transition-colors shadow-sm cursor-pointer flex items-center justify-center gap-1"
+              className="w-full max-w-[280px] py-2.5 px-4 rounded-xl bg-[#251D24] hover:bg-[#161115] text-white font-sans-clean font-bold text-xs tracking-widest uppercase transition-colors shadow-sm cursor-pointer flex items-center justify-center gap-1"
             >
               <span>NEXT MESSAGE</span>
               <span className="text-[10px] opacity-75">({activeIdx + 1}/{MESSAGES.length})</span>

@@ -5,7 +5,7 @@ import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
 import { WelcomeStory } from './components/WelcomeStory';
-import { JourneyTimeline } from './components/JourneyTimeline';
+// import { JourneyTimeline } from './components/JourneyTimeline';
 import { FamilyMessages } from './components/FamilyMessages';
 import { EventDetails } from './components/EventDetails';
 import { Venue } from './components/Venue';
@@ -101,10 +101,10 @@ export default function App() {
             {/* Section 3: Welcome to Our Story */}
             <WelcomeStory />
 
-            {/* Section 4: Our Journey Photos with Years */}
-            <JourneyTimeline />
+            {/* Section 4: Our Journey Photos with Years (Temporarily commented out) */}
+            {/* <JourneyTimeline /> */}
 
-            {/* Section 4: Family Messages to Guests */}
+            {/* Section 5: Family Messages to Guests */}
             <FamilyMessages />
 
             {/* Section 5: Event Details & Itinerary */}
