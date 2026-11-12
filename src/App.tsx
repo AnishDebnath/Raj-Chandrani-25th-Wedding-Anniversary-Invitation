@@ -1,10 +1,11 @@
-// ponytail: mobile-first wedding anniversary invitation app with JourneyTimeline section
-import React from 'react';
+// ponytail: mobile-first wedding anniversary invitation app with interactive intro video & Framer Motion transitions
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
 import { JourneyTimeline } from './components/JourneyTimeline';
 import { FamilyMessages } from './components/FamilyMessages';
-// import { WelcomeStory } from './components/WelcomeStory';
 import { EventDetails } from './components/EventDetails';
 import { Venue } from './components/Venue';
 import { RSVPForm } from './components/RSVPForm';
@@ -13,6 +14,8 @@ import { Footer } from './components/Footer';
 import { backgroundImg } from './assets';
 
 export default function App() {
+  const [showIntro, setShowIntro] = useState(true);
+
   const scrollToRSVP = () => {
     const el = document.getElementById('rsvp');
     if (el) {
@@ -37,7 +40,14 @@ export default function App() {
         backgroundAttachment: 'fixed',
       }}
     >
-      {/* Full-bleed edge-to-edge frame across every screen size (mobile, tablet, laptop, desktop) */}
+      {/* Intro Video Overlay */}
+      <AnimatePresence>
+        {showIntro && (
+          <IntroVideo onComplete={() => setShowIntro(false)} />
+        )}
+      </AnimatePresence>
+
+      {/* Main Website Content */}
       <div
         className="w-full min-h-screen relative flex flex-col"
         style={{
@@ -67,25 +77,22 @@ export default function App() {
             {/* Section 3: Our Journey Photos with Years */}
             <JourneyTimeline />
 
-            {/* Section 4: Family Members Message to Guests */}
+            {/* Section 4: Family Messages to Guests */}
             <FamilyMessages />
-
-            {/* Section 5: Welcome to Our Story (commented out for now) */}
-            {/* <WelcomeStory /> */}
 
             {/* Section 5: Event Details & Itinerary */}
             <EventDetails />
 
-            {/* Section 7: Venue & Location */}
+            {/* Section 6: Venue & Location */}
             <Venue />
 
-            {/* Section 8: RSVP Form */}
+            {/* Section 7: RSVP Form */}
             <RSVPForm />
 
-            {/* Section 9: Share Invitation */}
+            {/* Section 8: Share Invitation */}
             <ShareInvitation />
 
-            {/* Section 10: Photographic Couple Footer */}
+            {/* Section 9: Photographic Couple Footer */}
             <Footer />
           </div>
         </main>

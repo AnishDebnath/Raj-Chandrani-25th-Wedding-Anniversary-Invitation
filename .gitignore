@@ -9,6 +9,9 @@ dist-ssr/
 build/
 coverage/
 
+# Vercel
+.vercel
+
 # Vite & build caches
 .vite/
 .aistudio/

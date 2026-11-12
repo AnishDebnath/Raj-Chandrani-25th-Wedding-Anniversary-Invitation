@@ -1,95 +1,108 @@
-// ponytail: anniversary intro video player with refined padding & margins
-import React, { useRef, useState } from 'react';
-import { Play, Pause, Volume2, VolumeX, Sparkles } from 'lucide-react';
+// ponytail: cinematic full-screen intro video with refined 'Click to open' breathing glow and smooth dissolve
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { introVideo } from '../assets';
 
-export const IntroVideo: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+interface IntroVideoProps {
+  onComplete: () => void;
+}
 
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      videoRef.current.play();
-      setIsPlaying(true);
+export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [hasStarted, setHasStarted] = useState(false);
+
+  // Prime the first frame so it is visible immediately on load
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+  }, []);
+
+  const handleStartPlay = async () => {
+    if (!videoRef.current) {
+      onComplete();
+      return;
+    }
+
+    try {
+      videoRef.current.muted = false;
+      await videoRef.current.play();
+      setHasStarted(true);
+    } catch {
+      // Fallback if browser blocks unmuted audio on first interaction
+      try {
+        if (videoRef.current) {
+          videoRef.current.muted = true;
+          await videoRef.current.play();
+          setHasStarted(true);
+        }
+      } catch {
+        onComplete();
+      }
     }
   };
 
-  const toggleMute = () => {
-    if (!videoRef.current) return;
-    videoRef.current.muted = !isMuted;
-    setIsMuted(!isMuted);
+  const handleScreenClick = () => {
+    if (!hasStarted) {
+      handleStartPlay();
+    } else if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
   };
 
   return (
-    <section id="intro-video" className="relative py-10 sm:py-12 px-4 overflow-hidden border-b border-[#D5C0A5]/50">
-      <div className="max-w-md mx-auto text-center relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex items-center justify-center gap-1.5 mb-1.5">
-          <Sparkles className="w-3.5 h-3.5 text-[#B87C29]" />
-          <span className="font-cinzel text-[11px] sm:text-xs tracking-[0.28em] text-[#5A320A] uppercase font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            A Journey of 25 Years
-          </span>
-          <Sparkles className="w-3.5 h-3.5 text-[#B87C29]" />
-        </div>
+    <motion.div
+      key="intro-overlay"
+      initial={{ opacity: 1 }}
+      exit={{
+        opacity: 0,
+        transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
+      }}
+      onClick={handleScreenClick}
+      className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden cursor-pointer select-none"
+      aria-label="Play Intro Video"
+    >
+      <video
+        ref={videoRef}
+        src={introVideo}
+        playsInline
+        preload="auto"
+        onEnded={onComplete}
+        className="w-full h-full object-cover bg-black"
+      />
 
-        <h2 className="font-script-romantic text-3xl sm:text-4xl text-[#150C07] my-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
-          Watch Our Celebration
-        </h2>
-
-        {/* Video Frame with breathing room */}
-        <div className="relative rounded-2xl overflow-hidden border border-[#D5C0A5] shadow-lg bg-black/90 aspect-[16/9] sm:aspect-[16/10] max-w-[340px] sm:max-w-sm mx-auto mt-6 group">
-          <video
-            ref={videoRef}
-            src={introVideo}
-            playsInline
-            muted={isMuted}
-            loop
-            preload="metadata"
-            onClick={togglePlay}
-            onEnded={() => setIsPlaying(false)}
-            className="w-full h-full object-cover cursor-pointer"
-          />
-
-          {/* Center Play/Pause Overlay */}
-          {!isPlaying && (
-            <div
-              onClick={togglePlay}
-              className="absolute inset-0 flex items-center justify-center bg-black/35 backdrop-blur-[2px] transition-all cursor-pointer"
-            >
-              <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#D8A25E] to-[#F9E7B9] text-[#090909] flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110">
-                <Play className="w-5 h-5 ml-0.5 fill-[#090909]" />
-              </div>
+      {/* 'Click to Open' indicator at 68% height with breathing whole-element opacity */}
+      <AnimatePresence>
+        {!hasStarted && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{
+              opacity: [0.4, 1, 0.4],
+              y: 0,
+            }}
+            exit={{ opacity: 0, transition: { duration: 0.25 } }}
+            transition={{
+              opacity: {
+                repeat: Infinity,
+                duration: 2.2,
+                ease: 'easeInOut',
+              },
+              y: { duration: 0.5, ease: 'easeOut' },
+            }}
+            className="absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+          >
+            <div className="px-6 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-[#F9E7B9]/50 shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+              <span className="font-cinzel text-xs sm:text-sm tracking-[0.26em] text-[#F9E7B9] uppercase font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+                Click to open
+              </span>
             </div>
-          )}
-
-          {/* Bottom Video Controls Bar */}
-          <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 z-20">
-            <button
-              type="button"
-              onClick={toggleMute}
-              aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-              className="w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors cursor-pointer"
-            >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
-            </button>
-            <button
-              type="button"
-              onClick={togglePlay}
-              aria-label={isPlaying ? 'Pause video' : 'Play video'}
-              className="w-7 h-7 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/80 transition-colors cursor-pointer"
-            >
-              {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 ml-0.5" />}
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </section>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
