@@ -1,4 +1,4 @@
-// ponytail: full-bleed hero with refined text gaps and smooth mix-blend fade into photo
+// ponytail: full-bleed hero with identical mobile font size on all devices
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -37,7 +37,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         
         {/* Soft Multi-Stop Gradient Blend with Progressive Feather */}
         <div
-          className="absolute inset-x-0 top-0 h-72 sm:h-80 md:h-96 pointer-events-none"
+          className="absolute inset-x-0 top-0 h-72 sm:h-80 pointer-events-none"
           style={{
             background:
               'linear-gradient(to bottom, #F4DCB3 0%, #F4DCB3 52%, rgba(244, 220, 179, 0.94) 66%, rgba(244, 220, 179, 0.78) 76%, rgba(244, 220, 179, 0.45) 86%, rgba(244, 220, 179, 0.15) 94%, transparent 100%)',
@@ -51,36 +51,33 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
         />
 
         {/* Text Hierarchy with Proper Airy Gaps */}
-        <div className="relative pt-7 sm:pt-11 md:pt-14 pb-8 px-3 sm:px-4 md:px-6 flex flex-col items-center">
+        <div className="relative pt-7 sm:pt-9 pb-8 px-4 flex flex-col items-center">
           {/* Line 1: Names */}
           <motion.span
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="font-cinzel text-xs sm:text-[13px] md:text-sm lg:text-base tracking-[0.26em] sm:tracking-[0.35em] md:tracking-[0.4em] text-[#4A2610] uppercase font-bold leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+            className="font-cinzel text-xs tracking-[0.28em] text-[#4A2610] uppercase font-bold leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
           >
             RAJ &amp; CHANDRANI
           </motion.span>
 
-          {/* Line 2: Our Beginning (Proper vertical margin above & below) */}
+          {/* Line 2: Our Beginning */}
           <motion.h1
             initial={{ opacity: 0, scale: 0.9, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: 'easeOut' }}
-            className="font-script-romantic text-[clamp(2.35rem,5.5vw,4.25rem)] text-[#1C0F08] mt-2.5 sm:mt-4 md:mt-5 mb-2 sm:mb-2.5 md:mb-3 leading-[1.08] drop-shadow-[0_1px_2px_rgba(255,255,255,0.5)] whitespace-nowrap font-normal"
+            className="font-script-romantic text-4xl text-[#1C0F08] mt-2.5 mb-2 leading-[1.08] drop-shadow-[0_1px_2px_rgba(255,255,255,0.5)] whitespace-nowrap font-normal"
           >
             Our Beginning
           </motion.h1>
 
-          {/* Line 3: Date with continuous gentle golden breathing */}
+          {/* Line 3: Date */}
           <motion.span
             initial={{ opacity: 0, y: 16 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
-            className="font-serif-luxury text-base sm:text-lg md:text-xl lg:text-2xl text-[#381F0E] font-semibold tracking-wider leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]"
+            className="font-serif-luxury text-base text-[#381F0E] font-semibold tracking-wider leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]"
           >
             Jan 23, 2027
           </motion.span>
@@ -88,13 +85,13 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
       </div>
 
       {/* 3. Bottom Position: Location & Scroll */}
-      <div className="relative z-10 pb-5 sm:pb-6 md:pb-8 px-3 sm:px-4 flex flex-col items-center">
+      <div className="relative z-10 pb-5 sm:pb-6 px-4 flex flex-col items-center">
         {/* Location */}
         <motion.p
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.65, ease: 'easeOut' }}
-          className="font-script-romantic text-2xl sm:text-3xl md:text-4xl text-white drop-shadow-md leading-none mb-2 md:mb-3"
+          className="font-script-romantic text-2xl text-white drop-shadow-md leading-none mb-2"
         >
           Kolkata, India
         </motion.p>
@@ -108,10 +105,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
           className="flex flex-col items-center text-white/85 hover:text-white transition-colors cursor-pointer group"
         >
-          <span className="font-sans-clean text-xs md:text-sm tracking-[0.24em] md:tracking-[0.3em] uppercase font-semibold">
+          <span className="font-sans-clean text-xs tracking-[0.24em] uppercase font-semibold">
             SCROLL
           </span>
-          <ChevronDown className="w-3.5 h-3.5 md:w-4 md:h-4 mt-0.5 text-white/90 group-hover:translate-y-0.5 transition-transform" />
+          <ChevronDown className="w-3.5 h-3.5 mt-0.5 text-white/90 group-hover:translate-y-0.5 transition-transform" />
         </motion.button>
       </div>
     </section>

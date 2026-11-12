@@ -1,7 +1,7 @@
-// ponytail: cinematic full-screen intro video with refined 'Click to open' breathing glow and smooth dissolve
+// ponytail: cinematic intro video with matching mobile container centered and background image on both sides
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { introVideo } from '../assets';
+import { introVideo, backgroundImg } from '../assets';
 
 interface IntroVideoProps {
   onComplete: () => void;
@@ -63,46 +63,54 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
         transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
       }}
       onClick={handleScreenClick}
-      className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden cursor-pointer select-none touch-none"
+      className="fixed inset-0 z-50 bg-[#F4DCB3] flex justify-center overflow-hidden cursor-pointer select-none touch-none"
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: '100% auto',
+        backgroundRepeat: 'repeat-y',
+        backgroundAttachment: 'fixed',
+      }}
       aria-label="Play Intro Video"
     >
-      <video
-        ref={videoRef}
-        src={introVideo}
-        playsInline
-        preload="auto"
-        onEnded={onComplete}
-        className="w-full h-full object-cover bg-black"
-      />
+      <div className="w-full max-w-[450px] h-full relative bg-black shadow-2xl overflow-hidden sm:border-x border-[#D5C0A5]/70 flex items-center justify-center">
+        <video
+          ref={videoRef}
+          src={introVideo}
+          playsInline
+          preload="auto"
+          onEnded={onComplete}
+          className="w-full h-full object-cover bg-black"
+        />
 
-      {/* 'Click to Open' indicator at 68% height with breathing whole-element opacity */}
-      <AnimatePresence>
-        {!hasStarted && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{
-              opacity: [0.4, 1, 0.4],
-              y: 0,
-            }}
-            exit={{ opacity: 0, transition: { duration: 0.25 } }}
-            transition={{
-              opacity: {
-                repeat: Infinity,
-                duration: 2.2,
-                ease: 'easeInOut',
-              },
-              y: { duration: 0.5, ease: 'easeOut' },
-            }}
-            className="absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
-          >
-            <div className="px-6 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-[#F9E7B9]/50 shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-              <span className="font-cinzel text-xs sm:text-sm tracking-[0.26em] text-[#F9E7B9] uppercase font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
-                Click to open
-              </span>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* 'Click to Open' indicator at 68% height with breathing whole-element opacity */}
+        <AnimatePresence>
+          {!hasStarted && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{
+                opacity: [0.4, 1, 0.4],
+                y: 0,
+              }}
+              exit={{ opacity: 0, transition: { duration: 0.25 } }}
+              transition={{
+                opacity: {
+                  repeat: Infinity,
+                  duration: 2.2,
+                  ease: 'easeInOut',
+                },
+                y: { duration: 0.5, ease: 'easeOut' },
+              }}
+              className="absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
+            >
+              <div className="px-6 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-[#F9E7B9]/50 shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
+                <span className="font-cinzel text-xs tracking-[0.26em] text-[#F9E7B9] uppercase font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+                  Click to open
+                </span>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </motion.div>
   );
 };

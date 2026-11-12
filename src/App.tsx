@@ -56,7 +56,7 @@ export default function App() {
 
   return (
     <div
-      className="min-h-screen w-full bg-[#F4DCB3] text-[#2A1E17] selection:bg-[#B87C29] selection:text-white"
+      className="min-h-screen w-full bg-[#F4DCB3] text-[#2A1E17] flex justify-center selection:bg-[#B87C29] selection:text-white"
       style={{
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: '100% auto',
@@ -71,9 +71,9 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Main Website Content */}
+      {/* Main Website Content: Mobile width in center with luxury borders & background showing on both sides */}
       <div
-        className="w-full min-h-screen relative flex flex-col"
+        className="w-full max-w-[450px] min-h-screen shadow-2xl relative flex flex-col sm:border-x border-[#D5C0A5]/70"
         style={{
           backgroundImage: `url(${backgroundImg})`,
           backgroundSize: '100% auto',

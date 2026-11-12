@@ -1,4 +1,4 @@
-// ponytail: mobile-first venue section with section header & integrated photo with reduced outer padding
+// ponytail: mobile-first venue section with identical mobile font size on all devices
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Info, Clock, Globe, Calendar } from 'lucide-react';
@@ -14,9 +14,9 @@ export const Venue: React.FC = () => {
   return (
     <section
       id="venue"
-      className="relative text-[#2A1E17] py-10 sm:py-14 md:py-16 px-3 sm:px-4 md:px-6 overflow-hidden border-b border-[#D5C0A5]/40 text-center"
+      className="relative text-[#2A1E17] py-10 sm:py-12 px-3 sm:px-4 overflow-hidden border-b border-[#D5C0A5]/40 text-center"
     >
-      <div className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl mx-auto relative z-10 flex flex-col items-center">
+      <div className="w-full max-w-md mx-auto relative z-10 flex flex-col items-center">
         {/* Section Header with appear animation */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -25,30 +25,29 @@ export const Venue: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
-          <span className="font-cinzel text-xs sm:text-[13px] md:text-sm tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             VENUE &amp; LOCATION
           </span>
 
-          <h2 className="font-script-romantic text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
             The Venue
           </h2>
 
-          <p className="font-serif-luxury italic text-sm sm:text-[15px] md:text-base text-[#22130A] font-semibold leading-relaxed max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mt-2 mb-8 md:mb-10 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
             Join us as we raise a toast to 25 golden years in the heart of South Kolkata.
           </p>
         </motion.div>
 
-        {/* Luxury Venue Info Card with appear animation - fluidly adapts to screen size */}
+        {/* Luxury Venue Info Card with appear animation - exact mobile layout format */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 25 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.7, delay: 0.15, ease: 'easeOut' }}
-          className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl rounded-[28px] border border-[#C5A77B]/70 bg-gradient-to-b from-[#FBF2E3]/95 via-[#F4E4CB]/90 to-[#EAD4B4]/95 backdrop-blur-md p-2.5 sm:p-3 md:p-3 shadow-[0_10px_25px_rgba(84,47,7,0.12)] text-left md:grid md:grid-cols-2 md:gap-5 md:items-center"
+          className="w-full rounded-[28px] border border-[#C5A77B]/70 bg-gradient-to-b from-[#FBF2E3]/95 via-[#F4E4CB]/90 to-[#EAD4B4]/95 backdrop-blur-md p-2.5 sm:p-3 shadow-[0_10px_25px_rgba(84,47,7,0.12)] text-left flex flex-col"
         >
-          
-          {/* Venue Photograph (Left column on tablet/desktop) */}
-          <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] md:aspect-auto md:h-full md:min-h-[290px] rounded-[22px] overflow-hidden border border-[#C5A77B]/60 shadow-xs">
+          {/* Venue Photograph */}
+          <div className="relative w-full aspect-[16/10] rounded-[22px] overflow-hidden border border-[#C5A77B]/60 shadow-xs">
             <img
               src={venueAdbManorImg}
               alt="ADB Manor Venue"
@@ -58,20 +57,20 @@ export const Venue: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Details & Actions Content (Right / side div on tablet/desktop) */}
-          <div className="p-4 sm:p-7 md:p-9">
+          {/* Details & Actions Content */}
+          <div className="p-4 sm:p-5">
             {/* Kicker */}
-            <div className="text-center md:text-left font-cinzel text-xs sm:text-[13px] md:text-sm tracking-[0.22em] sm:tracking-[0.25em] text-[#784A15] font-bold uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+            <div className="text-center font-cinzel text-xs tracking-[0.22em] text-[#784A15] font-bold uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
               CEREMONY &amp; RECEPTION
             </div>
 
             {/* Title */}
-            <h3 className="text-center md:text-left font-serif-luxury font-bold text-xl sm:text-2xl md:text-3xl text-[#180E08] mt-1 mb-3 sm:mb-3.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
+            <h3 className="text-center font-serif-luxury font-bold text-xl text-[#180E08] mt-1 mb-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
               ADB Manor
             </h3>
 
             {/* Details List */}
-            <div className="space-y-2.5 sm:space-y-3 mb-4 sm:mb-5 text-[13.5px] sm:text-sm md:text-base text-[#2C1D13]">
+            <div className="space-y-2.5 mb-4 text-[13.5px] text-[#2C1D13]">
               {/* Address */}
               <div className="flex items-start gap-2.5">
                 <motion.div
@@ -98,7 +97,7 @@ export const Venue: React.FC = () => {
             </div>
 
             {/* Actions */}
-            <div className="space-y-2 sm:space-y-2.5">
+            <div className="space-y-2">
               {/* Primary: Get Directions */}
               <motion.a
                 href={googleMapsUrl}
@@ -106,7 +105,7 @@ export const Venue: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-2.5 sm:py-3 px-4 rounded-xl bg-[#20150F] hover:bg-[#110B07] text-[#FAF4EA] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs sm:text-sm md:text-base tracking-[0.18em] uppercase transition-colors shadow-sm active:scale-[0.99]"
+                className="w-full py-2.5 px-4 rounded-xl bg-[#20150F] hover:bg-[#110B07] text-[#FAF4EA] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs tracking-[0.18em] uppercase transition-colors shadow-sm active:scale-[0.99]"
               >
                 <Globe className="w-4 h-4" />
                 <span>GET DIRECTIONS</span>
@@ -119,7 +118,7 @@ export const Venue: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-2 sm:py-2.5 px-4 rounded-xl border border-[#B8986E] hover:bg-[#E8D4B8]/60 text-[#3C2513] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs sm:text-sm md:text-base tracking-[0.18em] uppercase transition-colors active:scale-[0.99]"
+                className="w-full py-2 px-4 rounded-xl border border-[#B8986E] hover:bg-[#E8D4B8]/60 text-[#3C2513] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs tracking-[0.18em] uppercase transition-colors active:scale-[0.99]"
               >
                 <Calendar className="w-4 h-4 text-[#784A15]" />
                 <span>ADD TO CALENDAR</span>
