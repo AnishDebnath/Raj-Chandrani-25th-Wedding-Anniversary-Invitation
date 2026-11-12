@@ -5,7 +5,6 @@ import { ChevronDown } from 'lucide-react';
 import { heroCoupleImg } from '../assets';
 
 interface HeroProps {
-  onRSVPClick?: () => void;
   onExploreClick?: () => void;
 }
 

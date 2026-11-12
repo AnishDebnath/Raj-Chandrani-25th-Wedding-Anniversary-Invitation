@@ -111,23 +111,26 @@ npm run preview
 │   └── rsvps.json               # Local RSVP submissions storage
 ├── public/
 │   └── images/                  # Public image fallbacks
+├── api/
+│   └── rsvp.ts                  # Vercel Serverless Function for RSVP API
 ├── src/
 │   ├── assets/
 │   │   ├── background.png       # Site-wide luxury parchment background
 │   │   ├── intro.mp4            # Anniversary celebration intro video
 │   │   ├── index.ts             # Centralized typed asset exports
-│   │   └── images/              # Hero, venue, journey, and floral imagery
+│   │   └── images/              # Hero, venue, journey, and footer imagery
 │   ├── components/
-│   │   ├── Closing.tsx          # Celebration gift banner and footer
-│   │   ├── Countdown.tsx        # Live anniversary countdown timer
-│   │   ├── EventDetails.tsx     # 4-stage itinerary timeline
-│   │   ├── GoldDecorations.tsx  # SVG ornaments and filigree
+│   │   ├── Countdown.tsx        # Live anniversary countdown & calendar card
+│   │   ├── EventDetails.tsx     # Celebration itinerary timeline
+│   │   ├── FamilyMessages.tsx   # Message cards from family
+│   │   ├── Footer.tsx           # Photographic couple footer card
 │   │   ├── Hero.tsx             # Full-bleed mobile-first hero section
-│   │   ├── IntroVideo.tsx       # Video player component
-│   │   ├── JourneyCarousel.tsx  # Touch-swipable photographic stage
+│   │   ├── IntroVideo.tsx       # First-frame intro video overlay with transition
+│   │   ├── JourneyTimeline.tsx  # Editorial storyline milestone chapters
 │   │   ├── RSVPForm.tsx         # Interactive RSVP form & WhatsApp link
-│   │   ├── Venue.tsx            # Venue card with Google Maps link
-│   │   └── YearsOfUs.tsx        # 25-year silver jubilee editorial
+│   │   ├── ShareInvitation.tsx  # 1-click share & copy link tools
+│   │   ├── Venue.tsx            # Venue card with Google Maps directions
+│   │   └── WelcomeStory.tsx     # A Silver Milestone story card
 │   ├── types/
 │   │   └── index.ts             # TypeScript type declarations
 │   ├── utils/
@@ -140,8 +143,8 @@ npm run preview
 │   └── main.tsx                 # Application entry point
 ├── index.html                   # HTML template with Google Fonts
 ├── package.json                 # Project dependencies and scripts
-├── server.ts                    # Optional Express backend for RSVP API
 ├── tsconfig.json                # TypeScript compiler configuration
+├── vercel.json                  # Vercel deployment configuration
 └── vite.config.ts               # Vite configuration with React & Tailwind plugins
 ```
 

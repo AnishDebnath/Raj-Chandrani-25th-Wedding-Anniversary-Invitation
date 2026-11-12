@@ -1,6 +1,6 @@
 // ponytail: mobile-first wedding anniversary invitation app with interactive intro video & Framer Motion transitions
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
@@ -17,11 +17,34 @@ import { backgroundImg } from './assets';
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
 
-  const scrollToRSVP = () => {
-    const el = document.getElementById('rsvp');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+  // Ensure scroll is at the very top on mount & manual restoration
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
     }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
+  // Lock body scroll while intro is showing to avoid background drift
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = 'hidden';
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    } else {
+      document.body.style.overflow = '';
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showIntro]);
+
+  const handleIntroComplete = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    setShowIntro(false);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    });
   };
 
   const scrollToCountdown = () => {
@@ -44,7 +67,7 @@ export default function App() {
       {/* Intro Video Overlay */}
       <AnimatePresence>
         {showIntro && (
-          <IntroVideo onComplete={() => setShowIntro(false)} />
+          <IntroVideo onComplete={handleIntroComplete} />
         )}
       </AnimatePresence>
 
@@ -60,7 +83,7 @@ export default function App() {
         <main className="flex-1 relative">
           {/* Section 1: Hero (Sticky pinned at top, remaining content scrolls over it) */}
           <div className="sticky top-0 z-0 w-full h-[100dvh] min-h-[100dvh] overflow-hidden">
-            <Hero onRSVPClick={scrollToRSVP} onExploreClick={scrollToCountdown} />
+            <Hero onExploreClick={scrollToCountdown} />
           </div>
 
           {/* Curtain Overlay: Subsequent sections slide UPWARDS over the Hero */}

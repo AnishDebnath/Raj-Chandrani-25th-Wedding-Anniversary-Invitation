@@ -31,7 +31,6 @@
   ],
   "exclude": [
     "dist",
-    "node_modules",
-    "server.ts"
+    "node_modules"
   ]
 }

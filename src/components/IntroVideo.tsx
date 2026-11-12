@@ -63,7 +63,7 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
         transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] },
       }}
       onClick={handleScreenClick}
-      className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden cursor-pointer select-none"
+      className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden cursor-pointer select-none touch-none"
       aria-label="Play Intro Video"
     >
       <video
