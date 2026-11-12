@@ -1,5 +1,6 @@
 // ponytail: mobile-first photographic footer with increased section height and taller bottom background part
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Heart, ChevronUp } from 'lucide-react';
 import { footerCoupleImg } from '../assets';
 
@@ -11,7 +12,13 @@ export const Footer: React.FC = () => {
   return (
     <footer id="footer" className="relative w-full overflow-hidden">
       {/* Full-width photo: 9:16 on mobile, with increased height showcase on tablet (760px) and laptop (840px) */}
-      <div className="relative w-full aspect-[9/16] sm:aspect-auto sm:h-[680px] md:h-[760px] lg:h-[840px] overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.2, ease: 'easeOut' }}
+        className="relative w-full aspect-[9/16] sm:aspect-auto sm:h-[680px] md:h-[760px] lg:h-[840px] overflow-hidden"
+      >
         {/* Couple Photograph with bidirectional mask blend */}
         <img
           src={footerCoupleImg}
@@ -45,29 +52,48 @@ export const Footer: React.FC = () => {
         />
 
         {/* Bottom text and button sitting on the expanded parchment blend */}
-        <div className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 md:pb-12 pt-16 px-3 sm:px-4 md:px-6 flex flex-col items-center text-center z-20">
-          <Heart className="w-4 h-4 md:w-5 md:h-5 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90 drop-shadow-xs" />
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-30px' }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 md:pb-12 pt-16 px-3 sm:px-4 md:px-6 flex flex-col items-center text-center z-20"
+        >
+          {/* Heart icon with all-time continuous heartbeat animation */}
+          <motion.div
+            animate={{ scale: [1, 1.28, 1] }}
+            transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          >
+            <Heart className="w-4 h-4 md:w-5 md:h-5 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90 drop-shadow-xs" />
+          </motion.div>
           
-          <span className="font-cinzel text-[11.5px] sm:text-sm md:text-base lg:text-lg font-bold tracking-[0.22em] sm:tracking-[0.28em] md:tracking-[0.35em] uppercase text-[#180E08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+          <span className="font-cinzel text-xs sm:text-sm md:text-base lg:text-lg font-bold tracking-[0.22em] sm:tracking-[0.28em] md:tracking-[0.35em] uppercase text-[#180E08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
             25 Years &amp; A Lifetime To Go
           </span>
 
-          <p className="font-serif-luxury italic text-[11px] sm:text-xs md:text-sm lg:text-base text-[#542F07] mt-1.5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-xs sm:text-[13.5px] md:text-sm lg:text-base text-[#542F07] mt-1.5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
             Raj &amp; Chandrani · ADB Manor Kolkata · 23 January 2027
           </p>
 
-          {/* Back To Top Button */}
-          <button
+          {/* Back To Top Button with all-time subtle floating bounce */}
+          <motion.button
             type="button"
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="mt-4 md:mt-5 inline-flex items-center gap-1.5 px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full border border-[#BFA075] bg-[#FAF2E3]/95 hover:bg-[#F3E2C7] active:scale-95 text-[#2A1E17] text-[10.5px] sm:text-xs md:text-sm lg:text-base font-sans-clean font-bold tracking-[0.2em] md:tracking-[0.25em] uppercase transition-all shadow-xs cursor-pointer hover:shadow-md"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="mt-4 md:mt-5 inline-flex items-center gap-1.5 px-5 sm:px-6 md:px-8 py-2 md:py-3 rounded-full border border-[#BFA075] bg-[#FAF2E3]/95 hover:bg-[#F3E2C7] active:scale-95 text-[#2A1E17] text-xs sm:text-sm md:text-base font-sans-clean font-bold tracking-[0.2em] md:tracking-[0.25em] uppercase transition-colors shadow-xs cursor-pointer hover:shadow-md"
           >
-            <ChevronUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#784A15]" />
+            <motion.div
+              animate={{ y: [0, -3, 0] }}
+              transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
+            >
+              <ChevronUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#784A15]" />
+            </motion.div>
             <span>BACK TO TOP</span>
-          </button>
-        </div>
-      </div>
+          </motion.button>
+        </motion.div>
+      </motion.div>
     </footer>
   );
 };

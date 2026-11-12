@@ -1,5 +1,6 @@
 // ponytail: mobile-first storyline chapters without white background cards matching exact reference image
 import React from 'react';
+import { motion } from 'framer-motion';
 import { journey1Img, journey2Img, journey3Img, heroCoupleImg } from '../assets';
 
 interface StoryChapter {
@@ -57,69 +58,94 @@ export const JourneyTimeline: React.FC = () => {
       id="journey"
       className="relative text-[#150C07] py-10 sm:py-14 md:py-16 px-3 sm:px-4 md:px-6 overflow-hidden border-b border-[#D5C0A5]/50"
     >
-      {/* Section Header */}
-      <div className="max-w-md md:max-w-2xl lg:max-w-3xl mx-auto flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16">
-        <span className="font-cinzel text-[11px] sm:text-xs md:text-sm lg:text-[15px] tracking-[0.32em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+      {/* Section Header with appear animation */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+        className="max-w-md md:max-w-2xl lg:max-w-3xl mx-auto flex flex-col items-center text-center mb-10 sm:mb-12 md:mb-16"
+      >
+        <span className="font-cinzel text-xs sm:text-[13px] md:text-sm tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
           OUR STORY
         </span>
 
-        <h2 className="font-script-romantic text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+        <h2 className="font-script-romantic text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
           Moments of Our Journey
         </h2>
 
-        <p className="font-serif-luxury italic text-xs sm:text-sm md:text-base lg:text-lg text-[#22130A] font-semibold leading-relaxed max-w-[290px] sm:max-w-sm md:max-w-xl lg:max-w-2xl mt-2 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+        <p className="font-serif-luxury italic text-sm sm:text-[15px] md:text-base text-[#22130A] font-semibold leading-relaxed max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl mt-2 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
           Twenty-five years of cherished memories, shared laughter, and enduring love.
         </p>
-      </div>
+      </motion.div>
 
       {/* Chapters List */}
       <div className="max-w-md md:max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto space-y-11 sm:space-y-14 md:space-y-16">
         {CHAPTERS.map((chapter, idx) => {
           const isOdd = idx % 2 === 1;
+          const is2027 = chapter.year === '2027';
 
           return (
-            <article
+            <motion.article
               key={chapter.year}
+              initial={{ opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: 'easeOut' }}
               className="w-full md:grid md:grid-cols-2 md:gap-8 lg:gap-14 xl:gap-20 md:items-center"
             >
               {/* Photo Column */}
               <div className={`w-full ${isOdd ? 'md:order-2' : 'md:order-1'}`}>
                 {/* Mobile-Only Heading (Year & Title above photo on mobile) */}
                 <div className="md:hidden mb-1 px-0.5 text-left">
-                  <span className="font-cinzel text-xs sm:text-[13px] tracking-[0.32em] text-[#542F07] font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                  <span className="font-cinzel text-xs sm:text-[13px] tracking-[0.25em] text-[#542F07] font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                     {chapter.year}
                   </span>
                 </div>
-                <h3 className="md:hidden font-script-romantic text-[1.75rem] sm:text-4xl text-[#0F0804] leading-tight mb-2.5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+                <h3 className="md:hidden font-script-romantic text-2xl sm:text-3xl text-[#0F0804] leading-tight mb-2.5 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
                   {chapter.title}
                 </h3>
 
-                {/* Story Photograph */}
-                <div className="w-full aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D5C0A5] shadow-md bg-black/5 mb-3.5 md:mb-0 group">
+                {/* Story Photograph with all-time subtle golden glow on Silver Jubilee */}
+                <motion.div
+                  animate={
+                    is2027
+                      ? {
+                          boxShadow: [
+                            '0 4px 18px rgba(184,124,41,0.25)',
+                            '0 8px 30px rgba(184,124,41,0.45)',
+                            '0 4px 18px rgba(184,124,41,0.25)',
+                          ],
+                        }
+                      : {}
+                  }
+                  transition={is2027 ? { repeat: Infinity, duration: 3.5, ease: 'easeInOut' } : undefined}
+                  className="w-full aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D5C0A5] shadow-md bg-black/5 mb-3.5 md:mb-0 group"
+                >
                   <img
                     src={chapter.img}
                     alt={chapter.alt}
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-103"
                     loading="lazy"
                   />
-                </div>
+                </motion.div>
               </div>
 
               {/* Story Text Column */}
               <div className={`flex flex-col justify-center ${isOdd ? 'md:order-1' : 'md:order-2'}`}>
                 {/* Desktop/Tablet-Only Heading (aligned beside photo) */}
                 <div className="hidden md:block mb-1.5 px-0.5 text-left">
-                  <span className="font-cinzel text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.32em] text-[#542F07] font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                  <span className="font-cinzel text-xs sm:text-sm md:text-base tracking-[0.25em] text-[#542F07] font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                     {chapter.year}
                   </span>
                 </div>
-                <h3 className="hidden md:block font-script-romantic text-3xl sm:text-4xl md:text-[2.6rem] lg:text-[3rem] text-[#0F0804] leading-tight mb-3 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+                <h3 className="hidden md:block font-script-romantic text-2xl sm:text-3xl md:text-[2.25rem] text-[#0F0804] leading-tight mb-3 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
                   {chapter.title}
                 </h3>
 
                 {/* Drop-Cap Editorial Story Paragraph */}
-                <p className="font-serif-luxury text-[13.5px] sm:text-[15px] md:text-base lg:text-[17px] text-[#1C1108] font-semibold leading-relaxed text-justify px-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
-                  <span className="font-script-romantic text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#0F0804] font-normal float-left leading-none pr-1.5 md:pr-2.5 pt-0.5 select-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                <p className="font-serif-luxury text-sm sm:text-[15px] md:text-base text-[#1C1108] font-semibold leading-relaxed text-justify px-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]">
+                  <span className="font-script-romantic text-4xl sm:text-5xl md:text-6xl text-[#0F0804] font-normal float-left leading-none pr-1.5 md:pr-2.5 pt-0.5 select-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
                     {chapter.dropCap}
                   </span>
                   <span>
@@ -128,7 +154,7 @@ export const JourneyTimeline: React.FC = () => {
                   </span>
                 </p>
               </div>
-            </article>
+            </motion.article>
           );
         })}
       </div>
