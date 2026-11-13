@@ -51,14 +51,25 @@ export default async function handler(req: any, res: any) {
 
       const entry = {
         id: `rsvp_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-        eventName: '25th Wedding Anniversary - Raj & Chandrani',
         name: trimmedName,
         attendance: body.attendance || 'yes',
-        guests: Number(body.guests) || 1,
-        phone: body.phone ? String(body.phone).trim() : undefined,
-        notes: body.notes ? String(body.notes).trim() : undefined,
+        guests: body.attendance === 'no' ? 0 : (Number(body.guests) || 1),
         submittedAt: new Date().toISOString(),
       };
+
+      // Forward to Google Sheet Webhook if configured
+      const sheetUrl = process.env.GOOGLE_SHEET_URL || process.env.VITE_GOOGLE_SHEET_URL;
+      if (sheetUrl) {
+        try {
+          await fetch(sheetUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(entry),
+          });
+        } catch (sheetErr) {
+          console.warn('Failed to forward RSVP to Google Sheet:', sheetErr);
+        }
+      }
 
       res.statusCode = 201;
       res.setHeader('Content-Type', 'application/json');
