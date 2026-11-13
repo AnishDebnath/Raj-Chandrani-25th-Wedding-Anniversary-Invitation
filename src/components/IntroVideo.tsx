@@ -62,9 +62,7 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
       initial={{ opacity: 1 }}
       exit={{
         opacity: 0,
-        filter: 'blur(8px)',
-        scale: 1.03,
-        transition: { duration: 1.4, ease: [0.4, 0, 0.2, 1] },
+        transition: { duration: 0.35, ease: 'easeOut' },
       }}
       onClick={handleScreenClick}
       className={`fixed inset-0 z-50 bg-[#F4DCB3] flex justify-center overflow-hidden select-none ${

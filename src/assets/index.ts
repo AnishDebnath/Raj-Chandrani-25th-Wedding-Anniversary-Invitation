@@ -6,13 +6,14 @@ import backgroundImg from './background.png';
 import introVideo from './intro.mp4';
 import introPoster from './intro-poster.png';
 import faviconImg from './favicon.png';
+import tphLogoImg from './tph-logo.png';
 import watermarkImg from './watermark/watermark.png';
 import ogCoverImg from './og-cover.jpg';
 import backgroundMusic from './background-music.mp3';
 
 // Story images from img folder
 import storyImg1 from './img/Traditional Bengali Wedding Portrait1.jpg';
-import storyImg2 from './img/Sindoor Ceremony in Golden Splendour.jpg';
+import storyImg2 from './img/Sindoor Ceremony in Gold and Red.jpg';
 import storyImg3 from './img/Bengali Wedding Ritual Offering.jpg';
 import storyImg4 from './img/Golden Bengali Wedding Portrait.jpg';
 import storyImg5 from './img/Joyful South Asian Wedding Portrait.jpg';
@@ -30,7 +31,7 @@ export interface StoryPhoto {
 
 export const storyPhotos: StoryPhoto[] = [
   { id: 1, img: storyImg1, alt: 'Traditional Bengali Wedding Portrait' },
-  { id: 2, img: storyImg2, alt: 'Sindoor Ceremony in Golden Splendour' },
+  { id: 2, img: storyImg2, alt: 'Sindoor Ceremony in Gold and Red' },
   { id: 3, img: storyImg3, alt: 'Bengali Wedding Ritual Offering' },
   { id: 4, img: storyImg4, alt: 'Golden Bengali Wedding Portrait' },
   { id: 5, img: storyImg5, alt: 'Joyful South Asian Wedding Portrait' },
@@ -57,6 +58,7 @@ export {
   introVideo,
   introPoster,
   faviconImg,
+  tphLogoImg,
   watermarkImg,
   ogCoverImg,
   backgroundMusic,

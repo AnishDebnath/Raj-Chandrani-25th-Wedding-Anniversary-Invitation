@@ -1,6 +1,6 @@
 // ponytail: mobile-first wedding anniversary invitation app with code-split lazy loading
 import React, { useState, useEffect, Suspense, lazy } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
@@ -110,10 +110,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Main Website Content: Mobile width in center with luxury borders & background showing on both sides */}
-      <motion.div
-        initial={{ opacity: 0.3 }}
-        animate={{ opacity: showIntro ? 0.3 : 1 }}
-        transition={{ duration: 1.4, ease: [0.4, 0, 0.2, 1] }}
+      <div
         className="w-full max-w-[450px] min-h-screen shadow-2xl relative flex flex-col sm:border-x border-[#D5C0A5]/70"
         style={{
           backgroundImage: `url(${backgroundImg})`,
@@ -124,7 +121,7 @@ export default function App() {
         <main className="flex-1 relative">
           {/* Section 1: Hero (Sticky pinned at top, remaining content scrolls over it) */}
           <div className="sticky top-0 z-0 w-full h-[100dvh] min-h-[100dvh] overflow-hidden">
-            <Hero onExploreClick={scrollToCountdown} />
+            <Hero onExploreClick={scrollToCountdown} animateIn={!showIntro} />
           </div>
 
           {/* Curtain Overlay: Subsequent sections slide UPWARDS over the Hero */}
@@ -167,7 +164,7 @@ export default function App() {
             </Suspense>
           </div>
         </main>
-      </motion.div>
+      </div>
 
       {/* Background Music Player with bottom-right floating mute/unmute control */}
       <AudioPlayer shouldPlay={!showIntro} />

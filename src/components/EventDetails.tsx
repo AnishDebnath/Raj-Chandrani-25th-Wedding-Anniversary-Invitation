@@ -74,7 +74,7 @@ export const EventDetails: React.FC = () => {
         </motion.div>
 
         {/* Timeline with Center Milestone Icons and High-Contrast Text */}
-        <div className="relative w-full max-w-[390px] mx-auto mb-8">
+        <div className="relative w-full max-w-[420px] mx-auto mb-8">
           {/* Continuous Center Hairline */}
           <div className="absolute top-4 bottom-6 left-1/2 -translate-x-1/2 w-px bg-[#C8B39B] pointer-events-none" />
 
@@ -92,8 +92,8 @@ export const EventDetails: React.FC = () => {
                   transition={{ duration: 0.65, delay: idx * 0.1, ease: 'easeOut' }}
                   className="relative flex items-start"
                 >
-                  {/* Left Column (50% width) */}
-                  <div className={`w-1/2 pr-4 sm:pr-5 text-right ${isLeft ? 'block' : 'invisible'}`}>
+                  {/* Left Column (50% width with generous gutter away from center badge) */}
+                  <div className={`w-1/2 pr-8 sm:pr-9 text-right ${isLeft ? 'block' : 'invisible'}`}>
                     {isLeft && (
                       <div>
                         <span className="font-cinzel text-xs font-extrabold text-[#0C0502] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
@@ -126,8 +126,8 @@ export const EventDetails: React.FC = () => {
                     {event.icon}
                   </motion.div>
 
-                  {/* Right Column (50% width) */}
-                  <div className={`w-1/2 pl-4 sm:pl-5 text-left ${!isLeft ? 'block' : 'invisible'}`}>
+                  {/* Right Column (50% width with generous gutter away from center badge) */}
+                  <div className={`w-1/2 pl-8 sm:pl-9 text-left ${!isLeft ? 'block' : 'invisible'}`}>
                     {!isLeft && (
                       <div>
                         <span className="font-cinzel text-xs font-extrabold text-[#0C0502] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">

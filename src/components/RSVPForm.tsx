@@ -1,5 +1,5 @@
 // ponytail: mobile-first RSVP section with identical mobile font size on all devices
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, User, CalendarCheck, Users, Quote, Check, X, Calendar, Phone } from 'lucide-react';
 import { RSVPFormData, validateRSVP, createWhatsAppRSVPLink, createGoogleCalendarUrl } from '../utils/rsvp';
@@ -14,15 +14,19 @@ export const RSVPForm: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const isSubmittingRef = useRef(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmittingRef.current) return;
+
     const validation = validateRSVP(formData);
     if (!validation.isValid) {
       setErrors(validation.errors);
       return;
     }
 
+    isSubmittingRef.current = true;
     setIsSubmitting(true);
     setErrors({});
 
@@ -32,28 +36,41 @@ export const RSVPForm: React.FC = () => {
         submittedAt: new Date().toISOString(),
       };
 
-      // 1. Submit to internal API endpoint
-      const apiPromise = fetch('/api/rsvp', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      }).catch((err) => {
-        console.warn('API endpoint unreachable, continuing with fallbacks:', err);
-        return null;
-      });
+      let forwardedByApi = false;
 
-      // 2. Direct client-side forward to Google Sheet Webhook if configured
-      const sheetUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
-      const sheetPromise = sheetUrl
-        ? fetch(sheetUrl, {
+      // 1. Submit to internal API endpoint (Vercel Serverless Function)
+      try {
+        const res = await fetch('/api/rsvp', {
           method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
-        }).catch((err) => console.warn('Google Sheet submission warning:', err))
-        : Promise.resolve();
+        });
 
-      await Promise.allSettled([apiPromise, sheetPromise]);
+        if (res.ok) {
+          const data = await res.json().catch(() => null);
+          if (data?.forwardedToSheet) {
+            forwardedByApi = true;
+          }
+        }
+      } catch (err) {
+        console.warn('API endpoint unreachable, will use direct client fallback:', err);
+      }
+
+      // 2. Direct client-side forward to Google Sheet Webhook ONLY IF not already handled by API
+      // Prevents duplicate double storage in Google Sheets upon deployment
+      const sheetUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
+      if (!forwardedByApi && sheetUrl) {
+        try {
+          await fetch(sheetUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(payload),
+          });
+        } catch (err) {
+          console.warn('Google Sheet submission warning:', err);
+        }
+      }
 
       // 3. Always store locally as dependable offline backup
       const local = JSON.parse(localStorage.getItem('rsvps') || '[]');
@@ -62,6 +79,7 @@ export const RSVPForm: React.FC = () => {
     } catch (err) {
       console.warn('RSVP submission error:', err);
     } finally {
+      isSubmittingRef.current = false;
       setIsSubmitting(false);
       setIsSuccess(true);
     }
@@ -152,7 +170,10 @@ export const RSVPForm: React.FC = () => {
 
               <button
                 type="button"
-                onClick={() => setIsSuccess(false)}
+                onClick={() => {
+                  isSubmittingRef.current = false;
+                  setIsSuccess(false);
+                }}
                 className="mt-4 text-xs font-sans-clean text-[#784A15] underline cursor-pointer hover:text-[#180E08]"
               >
                 Submit another response

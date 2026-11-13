@@ -58,6 +58,7 @@ export default async function handler(req: any, res: any) {
       };
 
       // Forward to Google Sheet Webhook if configured
+      let forwardedToSheet = false;
       const sheetUrl = process.env.GOOGLE_SHEET_URL || process.env.VITE_GOOGLE_SHEET_URL;
       if (sheetUrl) {
         try {
@@ -66,6 +67,7 @@ export default async function handler(req: any, res: any) {
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(entry),
           });
+          forwardedToSheet = true;
         } catch (sheetErr) {
           console.warn('Failed to forward RSVP to Google Sheet:', sheetErr);
         }
@@ -77,6 +79,7 @@ export default async function handler(req: any, res: any) {
         JSON.stringify({
           success: true,
           message: 'RSVP submitted successfully',
+          forwardedToSheet,
           rsvp: entry,
         })
       );
