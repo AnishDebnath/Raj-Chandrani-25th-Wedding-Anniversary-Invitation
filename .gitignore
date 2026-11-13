@@ -28,6 +28,9 @@ coverage/
 .env.production
 !.env.example
 
+# Local data & test submissions
+data/
+
 # Logs
 logs/
 *.log

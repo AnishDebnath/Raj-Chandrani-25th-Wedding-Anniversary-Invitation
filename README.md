@@ -188,9 +188,7 @@ To store RSVPs in a live Google Sheet:
 
 ```text
 ├── api/
-│   └── rsvp.ts                  # Vercel serverless function for RSVP storage
-├── data/
-│   └── rsvps.json               # Local fallback RSVP records
+│   └── rsvp.ts                  # Vercel serverless function for RSVP handling & Google Sheets webhook
 ├── public/
 │   └── images/                  # Public fallback assets
 ├── src/
