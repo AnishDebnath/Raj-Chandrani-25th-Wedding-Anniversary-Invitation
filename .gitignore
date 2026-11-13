@@ -8,20 +8,24 @@ dist/
 dist-ssr/
 build/
 coverage/
+*.tsbuildinfo
 
-# Vercel
-.vercel
+# Vercel & Deployment
+.vercel/
 
 # Vite & build caches
 .vite/
 .aistudio/
+.cache/
+.turbo/
+.eslintcache
 
 # Local environment & secrets
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*.local
+.env.development
+.env.test
+.env.production
 !.env.example
 
 # Logs
@@ -51,3 +55,4 @@ Thumbs.db
 ehthumbs.db
 desktop.ini
 *.tmp
+*.bak
