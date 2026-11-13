@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ChevronUp } from 'lucide-react';
 import { footerImg } from '../assets';
+import { Watermark } from './Watermark';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -45,7 +46,7 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Feathered Gradient Blend */}
         <div
-          className="absolute inset-x-0 bottom-0 h-60 sm:h-72 z-10 pointer-events-none"
+          className="absolute inset-x-0 bottom-0 h-64 sm:h-80 z-10 pointer-events-none"
           style={{
             background:
               'linear-gradient(to top, #F4DCB3 0%, #F4DCB3 42%, rgba(244, 220, 179, 0.95) 65%, rgba(244, 220, 179, 0.5) 85%, transparent 100%)',
@@ -58,7 +59,7 @@ export const Footer: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-30px' }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-          className="absolute inset-x-0 bottom-0 pb-8 sm:pb-10 pt-16 px-4 flex flex-col items-center text-center z-20"
+          className="absolute inset-x-0 bottom-0 pb-6 sm:pb-8 pt-12 px-4 flex flex-col items-center text-center z-20"
         >
           {/* Heart icon with all-time continuous heartbeat animation */}
           <motion.div
@@ -93,6 +94,9 @@ export const Footer: React.FC = () => {
             </motion.div>
             <span>BACK TO TOP</span>
           </motion.button>
+
+          {/* Watermark Section */}
+          <Watermark />
         </motion.div>
       </motion.div>
     </footer>
