@@ -128,7 +128,7 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
               className="absolute top-[68%] -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 pointer-events-none"
             >
               <div className="px-6 py-2.5 rounded-full bg-black/60 backdrop-blur-md border border-[#F9E7B9]/50 shadow-[0_4px_24px_rgba(0,0,0,0.6)]">
-                <span className="font-cinzel text-xs tracking-[0.26em] text-[#F9E7B9] uppercase font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
+                <span className="font-cinzel text-xs tracking-[0.26em] text-[#F9E7B9] uppercase font-bold drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)] whitespace-nowrap">
                   Click to open
                 </span>
               </div>

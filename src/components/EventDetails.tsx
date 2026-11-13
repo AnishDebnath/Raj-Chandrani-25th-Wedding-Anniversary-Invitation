@@ -60,15 +60,15 @@ export const EventDetails: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
-          <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          <span className="font-cinzel text-xs tracking-[0.28em] text-[#3B1F04] uppercase font-extrabold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.95)]">
             ANNIVERSARY PROGRAM
           </span>
 
-          <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          <h2 className="font-script-romantic text-3xl text-[#0C0502] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] font-normal">
             Order of Events
           </h2>
 
-          <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-8 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-sm text-[#120803] font-bold leading-relaxed max-w-sm mt-2 mb-8 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Saturday evening, 23rd January 2027 · The program starts by 6:00 PM onwards at ADB MANOR.
           </p>
         </motion.div>
@@ -96,21 +96,21 @@ export const EventDetails: React.FC = () => {
                   <div className={`w-1/2 pr-4 sm:pr-5 text-right ${isLeft ? 'block' : 'invisible'}`}>
                     {isLeft && (
                       <div>
-                        <span className="font-cinzel text-xs font-bold text-[#0F0804] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                        <span className="font-cinzel text-xs font-extrabold text-[#0C0502] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
                           {event.time}
                         </span>
 
-                        <h3 className="font-serif-luxury font-bold text-sm text-[#0F0804] leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                        <h3 className="font-serif-luxury font-bold text-sm text-[#0C0502] leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
                           {event.title}
                         </h3>
 
                         {event.subtitle && (
-                          <span className="font-serif-luxury italic text-xs text-[#542F07] font-semibold block leading-tight my-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                          <span className="font-serif-luxury italic text-xs text-[#3B1F04] font-bold block leading-tight my-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
                             {event.subtitle}
                           </span>
                         )}
 
-                        <p className="font-serif-luxury text-[13px] text-[#1C1108] leading-relaxed mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-semibold">
+                        <p className="font-serif-luxury text-[13px] text-[#100703] leading-relaxed mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-bold">
                           {event.description}
                         </p>
                       </div>
@@ -130,21 +130,21 @@ export const EventDetails: React.FC = () => {
                   <div className={`w-1/2 pl-4 sm:pl-5 text-left ${!isLeft ? 'block' : 'invisible'}`}>
                     {!isLeft && (
                       <div>
-                        <span className="font-cinzel text-xs font-bold text-[#0F0804] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                        <span className="font-cinzel text-xs font-extrabold text-[#0C0502] tracking-wider block mb-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
                           {event.time}
                         </span>
 
-                        <h3 className="font-serif-luxury font-bold text-sm text-[#0F0804] leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+                        <h3 className="font-serif-luxury font-bold text-sm text-[#0C0502] leading-snug drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
                           {event.title}
                         </h3>
 
                         {event.subtitle && (
-                          <span className="font-serif-luxury italic text-xs text-[#542F07] font-semibold block leading-tight my-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+                          <span className="font-serif-luxury italic text-xs text-[#3B1F04] font-bold block leading-tight my-0.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
                             {event.subtitle}
                           </span>
                         )}
 
-                        <p className="font-serif-luxury text-[13px] text-[#1C1108] leading-relaxed mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-semibold">
+                        <p className="font-serif-luxury text-[13px] text-[#100703] leading-relaxed mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-bold">
                           {event.description}
                         </p>
                       </div>
@@ -172,7 +172,7 @@ export const EventDetails: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             animate={{ y: [0, -2.5, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#150C07] font-sans-clean text-xs font-bold shadow-xs transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#0C0502] font-sans-clean text-xs font-bold shadow-xs transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
           >
             <Calendar className="w-3.5 h-3.5 text-[#B87C29]" />
             <span>Add to Calendar</span>

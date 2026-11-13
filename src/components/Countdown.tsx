@@ -44,15 +44,15 @@ export const Countdown: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
-          <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          <span className="font-cinzel text-xs tracking-[0.28em] text-[#3B1F04] uppercase font-extrabold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.95)]">
             SILVER JUBILEE CELEBRATION
           </span>
 
-          <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          <h2 className="font-script-romantic text-3xl text-[#0C0502] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] font-normal">
             Save the Date
           </h2>
 
-          <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-sm text-[#120803] font-bold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Two lives, twenty-five golden years, and a lifetime of shared devotion. Join us on Saturday, 23rd January 2027 as we celebrate the 25th Wedding Anniversary of Raj &amp; Chandrani.
           </p>
         </motion.div>
@@ -68,10 +68,10 @@ export const Countdown: React.FC = () => {
           
           {/* Month & Year Title */}
           <div className="flex items-baseline justify-center gap-2 mb-3">
-            <span className="font-script-romantic text-2xl text-[#0F0804] leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+            <span className="font-script-romantic text-2xl text-[#0C0502] leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)] font-medium">
               January
             </span>
-            <span className="font-cinzel text-sm font-bold tracking-[0.2em] text-[#784A15]">
+            <span className="font-cinzel text-sm font-extrabold tracking-[0.2em] text-[#4A2707]">
               2027
             </span>
           </div>
@@ -79,7 +79,7 @@ export const Countdown: React.FC = () => {
           {/* Calendar Month Grid */}
           <div className="w-full max-w-[280px]">
             {/* Days of the Week */}
-            <div className="grid grid-cols-7 text-center font-sans-clean text-xs font-bold text-[#784A15] pb-2 border-b border-[#C5A77B]/60">
+            <div className="grid grid-cols-7 text-center font-sans-clean text-xs font-extrabold text-[#4A2707] pb-2 border-b border-[#C5A77B]/60">
               <span>S</span>
               <span>M</span>
               <span>T</span>
@@ -112,9 +112,9 @@ export const Countdown: React.FC = () => {
                           ],
                         }}
                         transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
-                        className="w-7 h-7 rounded-full bg-gradient-to-r from-[#D8A25E] via-[#C99A50] to-[#B87C29] text-[#090909] font-bold flex items-center justify-center shadow-xs ring-2 ring-[#B87C29]/50 scale-105"
+                        className="w-7 h-7 rounded-full bg-gradient-to-r from-[#D8A25E] via-[#C99A50] to-[#B87C29] text-[#090909] font-extrabold flex items-center justify-center shadow-xs ring-2 ring-[#B87C29]/50 scale-105"
                       >
-                        <span className="text-xs font-bold">{day}</span>
+                        <span className="text-xs font-extrabold">{day}</span>
                       </motion.div>
                       {/* Red Heart on Anniversary Date with all-time heartbeat animation */}
                       <motion.div
@@ -130,7 +130,7 @@ export const Countdown: React.FC = () => {
                 return (
                   <div
                     key={`day-${day}`}
-                    className="h-7 flex items-center justify-center text-[#1C1108]"
+                    className="h-7 flex items-center justify-center text-[#0C0502] font-extrabold"
                   >
                     {day}
                   </div>
@@ -147,7 +147,7 @@ export const Countdown: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-30px' }}
           transition={{ duration: 0.6 }}
-          className="font-cinzel text-xs font-bold tracking-[0.25em] text-[#542F07] uppercase block mt-7 mb-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
+          className="font-cinzel text-xs font-extrabold tracking-[0.25em] text-[#3B1F04] uppercase block mt-7 mb-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.95)]"
         >
           COUNTDOWN TO THE CELEBRATION
         </motion.span>
@@ -162,10 +162,10 @@ export const Countdown: React.FC = () => {
         >
           {items.map((item, idx) => (
             <div key={idx} className="flex flex-col items-center px-1">
-              <span className="font-serif-luxury text-2xl font-bold text-[#0F0804] tabular-nums leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+              <span className="font-serif-luxury text-2xl font-bold text-[#0C0502] tabular-nums leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
                 {item.value}
               </span>
-              <span className="font-sans-clean text-xs tracking-[0.16em] text-[#542F07] uppercase font-bold mt-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+              <span className="font-sans-clean text-xs tracking-[0.16em] text-[#3B1F04] uppercase font-extrabold mt-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
                 {item.label}
               </span>
             </div>
@@ -187,7 +187,7 @@ export const Countdown: React.FC = () => {
             whileTap={{ scale: 0.95 }}
             animate={{ y: [0, -2.5, 0] }}
             transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#150C07] font-sans-clean text-xs font-bold shadow-xs transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+            className="inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#B87C29] bg-[#FAF3E8]/90 hover:bg-[#FAF3E8] text-[#0C0502] font-sans-clean text-xs font-bold shadow-xs transition-colors drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
           >
             <Calendar className="w-3.5 h-3.5 text-[#B87C29]" />
             <span>Add to Calendar</span>

@@ -69,11 +69,11 @@ export const Footer: React.FC = () => {
             <Heart className="w-4 h-4 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90 drop-shadow-xs" />
           </motion.div>
 
-          <span className="font-cinzel text-xs font-bold tracking-[0.24em] uppercase text-[#180E08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
+          <span className="font-cinzel text-xs font-extrabold tracking-[0.24em] uppercase text-[#0C0502] drop-shadow-[0_1px_1.5px_rgba(255,255,255,0.95)]">
             25 YEARS OF TOGETHERNESS
           </span>
 
-          <p className="font-cinzel text-[10px] tracking-[0.22em] text-[#542F07] uppercase font-bold mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-cinzel text-[10px] tracking-[0.22em] text-[#3B1F04] uppercase font-extrabold mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Invitation from our son RITHVIK
           </p>
 
@@ -84,13 +84,13 @@ export const Footer: React.FC = () => {
             aria-label="Back to top"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
-            className="mt-4 inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#BFA075] bg-[#FAF2E3]/95 hover:bg-[#F3E2C7] active:scale-95 text-[#2A1E17] text-xs font-sans-clean font-bold tracking-[0.2em] uppercase transition-colors shadow-xs cursor-pointer hover:shadow-md"
+            className="mt-4 inline-flex items-center gap-1.5 px-5 py-2 rounded-full border border-[#BFA075] bg-[#FAF2E3]/95 hover:bg-[#F3E2C7] active:scale-95 text-[#0C0502] text-xs font-sans-clean font-extrabold tracking-[0.2em] uppercase transition-colors shadow-xs cursor-pointer hover:shadow-md"
           >
             <motion.div
               animate={{ y: [0, -3, 0] }}
               transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
             >
-              <ChevronUp className="w-3.5 h-3.5 text-[#784A15]" />
+              <ChevronUp className="w-3.5 h-3.5 text-[#542F07]" />
             </motion.div>
             <span>BACK TO TOP</span>
           </motion.button>

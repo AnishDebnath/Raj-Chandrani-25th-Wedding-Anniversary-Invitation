@@ -25,15 +25,15 @@ export const Venue: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
-          <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          <span className="font-cinzel text-xs tracking-[0.28em] text-[#3B1F04] uppercase font-extrabold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.95)]">
             CELEBRATION VENUE
           </span>
 
-          <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          <h2 className="font-script-romantic text-3xl text-[#0C0502] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] font-normal">
             The Venue &amp; Location
           </h2>
 
-          <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-sm text-[#120803] font-bold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Join us as we raise a toast to 25 golden years in the heart of South Kolkata at ADB MANOR.
           </p>
         </motion.div>
@@ -61,17 +61,17 @@ export const Venue: React.FC = () => {
           {/* Details & Actions Content */}
           <div className="p-4 sm:p-5">
             {/* Kicker */}
-            <div className="text-center font-cinzel text-xs tracking-[0.22em] text-[#784A15] font-bold uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+            <div className="text-center font-cinzel text-xs tracking-[0.22em] text-[#4A2707] font-extrabold uppercase drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
               ANNIVERSARY VENUE
             </div>
 
             {/* Title */}
-            <h3 className="text-center font-serif-luxury font-bold text-xl text-[#180E08] mt-1 mb-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
+            <h3 className="text-center font-serif-luxury font-extrabold text-xl text-[#0C0502] mt-1 mb-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.5)]">
               ADB MANOR
             </h3>
 
             {/* Details List */}
-            <div className="space-y-2.5 mb-4 text-[13.5px] text-[#2C1D13]">
+            <div className="space-y-2.5 mb-4 text-[13.5px] text-[#120803]">
               {/* Address */}
               <div className="flex items-start gap-2.5">
                 <motion.div
@@ -79,21 +79,21 @@ export const Venue: React.FC = () => {
                   transition={{ repeat: Infinity, duration: 2.2, ease: 'easeInOut' }}
                   className="shrink-0 mt-0.5"
                 >
-                  <MapPin className="w-4 h-4 text-[#784A15]" />
+                  <MapPin className="w-4 h-4 text-[#542F07]" />
                 </motion.div>
-                <span className="font-medium leading-snug">69/1 Purna Das Road, Kolkata-700029</span>
+                <span className="font-semibold leading-snug">69/1 Purna Das Road, Kolkata-700029</span>
               </div>
 
               {/* Landmark */}
               <div className="flex items-start gap-2.5">
-                <Info className="w-4 h-4 text-[#784A15] shrink-0 mt-0.5" />
-                <span className="font-medium leading-snug">Beside Triangular Park</span>
+                <Info className="w-4 h-4 text-[#542F07] shrink-0 mt-0.5" />
+                <span className="font-semibold leading-snug">Beside Triangular Park</span>
               </div>
 
               {/* Time & Date */}
               <div className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-[#784A15] shrink-0 mt-0.5" />
-                <span className="font-medium leading-snug">23rd January 2027, Saturday evening · 6:00 PM Onwards</span>
+                <Clock className="w-4 h-4 text-[#542F07] shrink-0 mt-0.5" />
+                <span className="font-semibold leading-snug">23rd January 2027, Saturday evening · 6:00 PM Onwards</span>
               </div>
             </div>
 
@@ -119,9 +119,9 @@ export const Venue: React.FC = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-2 px-4 rounded-xl border border-[#B8986E] hover:bg-[#E8D4B8]/60 text-[#3C2513] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs tracking-[0.18em] uppercase transition-colors active:scale-[0.99]"
+                className="w-full py-2 px-4 rounded-xl border border-[#A58253] bg-[#FAF3E8]/80 hover:bg-[#FAF3E8] text-[#120803] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs tracking-[0.18em] uppercase transition-colors active:scale-[0.99]"
               >
-                <Calendar className="w-4 h-4 text-[#784A15]" />
+                <Calendar className="w-4 h-4 text-[#542F07]" />
                 <span>ADD TO CALENDAR</span>
               </motion.a>
             </div>

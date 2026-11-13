@@ -67,10 +67,10 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
           <img
             src={faviconImg}
             alt="The Photographer House"
-            className="w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain rounded-full opacity-85 group-hover:opacity-100 transition-opacity"
+            className="w-3.5 h-3.5 sm:w-4 sm:h-4 object-contain rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
           />
-          <span className="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.14em] text-[#542F07]/80 group-hover:text-[#251509] uppercase font-semibold flex items-center gap-1 transition-colors">
-            <span className="opacity-35 font-light">|</span>
+          <span className="font-cinzel text-[9.5px] sm:text-[10px] tracking-[0.14em] text-[#381B03] group-hover:text-[#180801] uppercase font-bold flex items-center gap-1 transition-colors">
+            <span className="opacity-40 font-light">|</span>
             <span>The Photographer House</span>
           </span>
         </motion.a>
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="font-cinzel text-[11px] sm:text-xs tracking-[0.28em] text-[#4A2610] uppercase font-bold leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]"
+            className="font-cinzel text-[11px] sm:text-xs tracking-[0.28em] text-[#281204] uppercase font-extrabold leading-none drop-shadow-[0_1px_1.5px_rgba(255,255,255,0.95)]"
           >
             RAJ &amp; CHANDRANI
           </motion.span>
@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             initial={{ opacity: 0, scale: 0.9, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35, ease: 'easeOut' }}
-            className="font-script-romantic text-3xl sm:text-[2.35rem] text-[#1C0F08] mt-2 mb-1.5 leading-[1.1] drop-shadow-[0_1px_2px_rgba(255,255,255,0.5)] whitespace-nowrap font-normal"
+            className="font-script-romantic text-3xl sm:text-[2.35rem] text-[#0C0502] mt-2 mb-1.5 leading-[1.1] drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)] whitespace-nowrap font-medium"
           >
             25th Wedding Anniversary
           </motion.h1>
@@ -102,7 +102,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick }) => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
-            className="font-serif-luxury text-[13px] sm:text-sm text-[#381F0E] font-medium tracking-wider leading-none drop-shadow-[0_1px_1px_rgba(255,255,255,0.6)]"
+            className="font-serif-luxury text-[13px] sm:text-sm text-[#1F0D04] font-bold tracking-wider leading-none drop-shadow-[0_1px_1.5px_rgba(255,255,255,0.9)]"
           >
             Saturday, 23rd January 2027
           </motion.span>

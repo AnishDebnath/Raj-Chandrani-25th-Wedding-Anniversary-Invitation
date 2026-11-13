@@ -91,15 +91,15 @@ export const RSVPForm: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
-          <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          <span className="font-cinzel text-xs tracking-[0.28em] text-[#3B1F04] uppercase font-extrabold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.95)]">
             KINDLY RESPOND
           </span>
 
-          <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          <h2 className="font-script-romantic text-3xl text-[#0C0502] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] font-normal">
             Will You Join Us?
           </h2>
 
-          <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-sm text-[#120803] font-bold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Your gracious presence and warm blessings will make our 25th wedding anniversary celebration truly complete. Kindly confirm your attendance.
           </p>
         </motion.div>
@@ -118,10 +118,10 @@ export const RSVPForm: React.FC = () => {
               <div className="w-12 h-12 rounded-full bg-[#E8D4B8]/80 border border-[#B87C29] text-[#784A15] flex items-center justify-center mx-auto mb-3 shadow-xs">
                 <Check className="w-6 h-6" />
               </div>
-              <h4 className="font-serif-luxury text-xl font-bold text-[#180E08] mb-1">
+              <h4 className="font-serif-luxury text-xl font-bold text-[#0C0502] mb-1">
                 Thank You, {formData.name}!
               </h4>
-              <p className="font-serif-luxury italic text-xs text-[#4A382A] mb-5 leading-relaxed">
+              <p className="font-serif-luxury italic text-xs text-[#1C1108] font-semibold mb-5 leading-relaxed">
                 {formData.attendance === 'yes'
                   ? `We are delighted to celebrate our 25th milestone with you (${formData.guests} member${formData.guests > 1 ? 's' : ''})!`
                   : 'Thank you for letting us know. You will be missed dearly!'}
@@ -166,11 +166,11 @@ export const RSVPForm: React.FC = () => {
               <div>
                 <label
                   htmlFor="rsvp-name"
-                  className="block font-cinzel text-xs tracking-[0.2em] text-[#784A15] font-bold uppercase mb-1.5"
+                  className="block font-cinzel text-xs tracking-[0.2em] text-[#4A2707] font-extrabold uppercase mb-1.5"
                 >
                   YOUR FULL NAME
                 </label>
-                <div className="relative rounded-xl border border-dashed border-[#BFA075] bg-white/40 px-3.5 py-2.5 flex items-center justify-between gap-2 shadow-2xs focus-within:border-[#784A15] focus-within:bg-white/60 transition-all">
+                <div className="relative rounded-xl border border-dashed border-[#A58253] bg-white/50 px-3.5 py-2.5 flex items-center justify-between gap-2 shadow-2xs focus-within:border-[#4A2707] focus-within:bg-white/70 transition-all">
                   <input
                     id="rsvp-name"
                     name="name"
@@ -182,20 +182,20 @@ export const RSVPForm: React.FC = () => {
                       if (errors.name) setErrors({ ...errors, name: '' });
                     }}
                     placeholder="e.g. Anand & Sunita Roy"
-                    className="w-full bg-transparent font-serif-luxury text-sm text-[#180E08] font-semibold placeholder-[#9C826D] focus:outline-none"
+                    className="w-full bg-transparent font-serif-luxury text-sm text-[#0C0502] font-bold placeholder-[#785E47] focus:outline-none"
                   />
-                  <User className="w-4 h-4 text-[#8C6B45] shrink-0" />
+                  <User className="w-4 h-4 text-[#542F07] shrink-0" />
                 </div>
                 {errors.name && (
-                  <p className="text-[11px] text-red-700 font-sans-clean mt-1">{errors.name}</p>
+                  <p className="text-[11px] text-red-700 font-sans-clean font-bold mt-1">{errors.name}</p>
                 )}
               </div>
 
               {/* Attendance Selection with formal invitation choices */}
               <div className="pt-1">
                 <div className="flex items-center gap-1.5 mb-1.5">
-                  <CalendarCheck className="w-3.5 h-3.5 text-[#784A15] shrink-0" />
-                  <span className="font-cinzel text-xs tracking-wider text-[#784A15] font-bold uppercase">
+                  <CalendarCheck className="w-3.5 h-3.5 text-[#542F07] shrink-0" />
+                  <span className="font-cinzel text-xs tracking-wider text-[#4A2707] font-extrabold uppercase">
                     WILL YOU ATTEND?
                   </span>
                 </div>
@@ -211,22 +211,22 @@ export const RSVPForm: React.FC = () => {
                     }
                     className={`py-2.5 px-2 rounded-xl text-xs font-sans-clean font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 ${formData.attendance === 'yes'
                       ? 'bg-[#20150F] text-[#FAF4EA] shadow-xs'
-                      : 'border border-[#C5A77B] text-[#543D28] hover:bg-[#E8D4B8]/40'
+                      : 'border border-[#A58253] bg-[#FAF3E8]/80 text-[#2D1604] hover:bg-[#FAF3E8]'
                       }`}
                   >
                     <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                    <span className="whitespace-nowrap">Joyfully Attend</span>
+                    <span className="whitespace-nowrap font-extrabold">Joyfully Attend</span>
                   </button>
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, attendance: 'no', guests: 0 })}
                     className={`py-2.5 px-2 rounded-xl text-xs font-sans-clean font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 ${formData.attendance === 'no'
                       ? 'bg-[#20150F] text-[#FAF4EA] shadow-xs'
-                      : 'border border-[#C5A77B] text-[#543D28] hover:bg-[#E8D4B8]/40'
+                      : 'border border-[#A58253] bg-[#FAF3E8]/80 text-[#2D1604] hover:bg-[#FAF3E8]'
                       }`}
                   >
-                    <X className="w-3.5 h-3.5 text-stone-400 shrink-0" />
-                    <span className="whitespace-nowrap">Regretfully Decline</span>
+                    <X className="w-3.5 h-3.5 text-stone-500 shrink-0" />
+                    <span className="whitespace-nowrap font-extrabold">Regretfully Decline</span>
                   </button>
                 </div>
               </div>
@@ -236,32 +236,32 @@ export const RSVPForm: React.FC = () => {
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="flex items-center gap-1.5">
                     <Users className="w-4 h-4 text-[#542F07] shrink-0" />
-                    <span className="font-cinzel text-xs tracking-wider text-[#180E08] font-bold uppercase">
+                    <span className="font-cinzel text-xs tracking-wider text-[#0C0502] font-extrabold uppercase">
                       NO. OF MEMBERS
                     </span>
                   </div>
-                  <span className="text-xs text-[#542F07] font-serif-luxury italic font-medium">
+                  <span className="text-xs text-[#3B1F04] font-serif-luxury italic font-bold">
                     {formData.attendance === 'no' ? 'Not attending' : 'Including yourself'}
                   </span>
                 </div>
                 <div
-                  className={`h-11 rounded-xl border border-[#BFA075] bg-white/70 px-3 flex items-center justify-between shadow-2xs transition-opacity ${formData.attendance === 'no' ? 'opacity-40 pointer-events-none' : 'opacity-100'
+                  className={`h-11 rounded-xl border border-[#A58253] bg-white/70 px-3 flex items-center justify-between shadow-2xs transition-opacity ${formData.attendance === 'no' ? 'opacity-40 pointer-events-none' : 'opacity-100'
                     }`}
                 >
                   <button
                     type="button"
                     onClick={() => handleGuestChange(-1)}
                     disabled={formData.guests <= 1 || formData.attendance === 'no'}
-                    className="w-8 h-8 rounded-lg bg-[#EAD6BB]/70 hover:bg-[#DFC29F] border border-[#C5A77B]/60 active:scale-95 text-[#180E08] font-bold text-lg flex items-center justify-center cursor-pointer disabled:opacity-30 transition-all"
+                    className="w-8 h-8 rounded-lg bg-[#EAD6BB]/70 hover:bg-[#DFC29F] border border-[#C5A77B]/60 active:scale-95 text-[#0C0502] font-extrabold text-lg flex items-center justify-center cursor-pointer disabled:opacity-30 transition-all"
                     aria-label="Decrease member count"
                   >
                     -
                   </button>
                   <div className="flex items-center gap-1.5">
-                    <span className="font-sans-clean font-bold text-base text-[#180E08]">
+                    <span className="font-sans-clean font-extrabold text-base text-[#0C0502]">
                       {formData.attendance === 'no' ? 0 : formData.guests}
                     </span>
-                    <span className="font-serif-luxury font-bold text-xs text-[#2C180C]">
+                    <span className="font-serif-luxury font-bold text-xs text-[#120803]">
                       {formData.guests === 1 ? 'Member attending' : 'Members attending'}
                     </span>
                   </div>
@@ -269,7 +269,7 @@ export const RSVPForm: React.FC = () => {
                     type="button"
                     onClick={() => handleGuestChange(1)}
                     disabled={formData.guests >= 10 || formData.attendance === 'no'}
-                    className="w-8 h-8 rounded-lg bg-[#EAD6BB]/70 hover:bg-[#DFC29F] border border-[#C5A77B]/60 active:scale-95 text-[#180E08] font-bold text-lg flex items-center justify-center cursor-pointer disabled:opacity-30 transition-all"
+                    className="w-8 h-8 rounded-lg bg-[#EAD6BB]/70 hover:bg-[#DFC29F] border border-[#C5A77B]/60 active:scale-95 text-[#0C0502] font-extrabold text-lg flex items-center justify-center cursor-pointer disabled:opacity-30 transition-all"
                     aria-label="Increase member count"
                   >
                     +
@@ -278,9 +278,9 @@ export const RSVPForm: React.FC = () => {
               </div>
 
               {/* Quote Note Box matching reference */}
-              <div className="rounded-xl bg-[#EFE3CF]/65 border border-[#D8C2A0]/50 p-3 flex items-start gap-2.5 text-left">
-                <Quote className="w-4 h-4 text-[#8C6B45] shrink-0 mt-0.5" />
-                <p className="font-serif-luxury italic text-xs text-[#4A382A] leading-relaxed">
+              <div className="rounded-xl bg-[#EFE3CF]/80 border border-[#D8C2A0]/70 p-3 flex items-start gap-2.5 text-left">
+                <Quote className="w-4 h-4 text-[#542F07] shrink-0 mt-0.5" />
+                <p className="font-serif-luxury italic text-xs text-[#1C1108] font-semibold leading-relaxed">
                   Kindly respond by January 10, 2027 so we can make the most gracious arrangements for your family.
                 </p>
               </div>
@@ -305,19 +305,19 @@ export const RSVPForm: React.FC = () => {
 
         {/* Invitation from our son RITHVIK */}
         <div className="mt-6 text-center">
-          <p className="font-cinzel text-xs tracking-[0.24em] text-[#542F07] uppercase font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
+          <p className="font-cinzel text-xs tracking-[0.24em] text-[#3B1F04] uppercase font-extrabold drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Invitation from our son RITHVIK
           </p>
         </div>
 
         {/* Tap to Call Contact */}
-        <div className="mt-3 flex items-center justify-center flex-wrap gap-2 text-xs font-sans-clean text-[#4A392F]">
-          <Phone className="w-3.5 h-3.5 text-[#784A15] shrink-0" />
-          <a href="tel:9433007412" className="hover:text-[#784A15] transition-colors font-semibold">
+        <div className="mt-3 flex items-center justify-center flex-wrap gap-2 text-xs font-sans-clean text-[#120803] font-bold">
+          <Phone className="w-3.5 h-3.5 text-[#542F07] shrink-0" />
+          <a href="tel:9433007412" className="hover:text-[#542F07] transition-colors font-extrabold underline decoration-[#542F07]/40 underline-offset-2">
             9433007412 (Raj)
           </a>
           <span>·</span>
-          <a href="tel:9432854364" className="hover:text-[#784A15] transition-colors font-semibold">
+          <a href="tel:9432854364" className="hover:text-[#542F07] transition-colors font-extrabold underline decoration-[#542F07]/40 underline-offset-2">
             9432854364 (Chandrani)
           </a>
         </div>

@@ -84,15 +84,15 @@ export const ShareInvitation: React.FC = () => {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
-          <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
+          <span className="font-cinzel text-xs tracking-[0.28em] text-[#3B1F04] uppercase font-extrabold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.95)]">
             SPREAD THE CELEBRATION
           </span>
 
-          <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
+          <h2 className="font-script-romantic text-3xl text-[#0C0502] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] font-normal">
             Share the Invitation
           </h2>
 
-          <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+          <p className="font-serif-luxury italic text-sm text-[#120803] font-bold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
             Invite family and dear friends to join the 25th Wedding Anniversary of Raj &amp; Chandrani.
           </p>
         </motion.div>
@@ -111,7 +111,7 @@ export const ShareInvitation: React.FC = () => {
             onClick={handleWhatsAppShare}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 px-2 rounded-2xl border border-[#A58253] bg-white/80 hover:bg-white text-[#0C0502] font-sans-clean font-extrabold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
             <span>WhatsApp</span>
@@ -123,7 +123,7 @@ export const ShareInvitation: React.FC = () => {
             onClick={handleFacebookShare}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 px-2 rounded-2xl border border-[#A58253] bg-white/80 hover:bg-white text-[#0C0502] font-sans-clean font-extrabold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             <Facebook className="w-3.5 h-3.5 text-[#1877F2] shrink-0" />
             <span>Facebook</span>
@@ -135,7 +135,7 @@ export const ShareInvitation: React.FC = () => {
             onClick={handleInstagramShare}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 px-2 rounded-2xl border border-[#A58253] bg-white/80 hover:bg-white text-[#0C0502] font-sans-clean font-extrabold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             <Instagram className="w-3.5 h-3.5 text-[#E4405F] shrink-0" />
             <span>Instagram</span>
@@ -147,16 +147,16 @@ export const ShareInvitation: React.FC = () => {
             onClick={handleCopyLink}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="py-2.5 px-2 rounded-2xl border border-[#BFA075] bg-white/70 hover:bg-white text-[#180E08] font-sans-clean font-bold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
+            className="py-2.5 px-2 rounded-2xl border border-[#A58253] bg-white/80 hover:bg-white text-[#0C0502] font-sans-clean font-extrabold text-xs tracking-wider flex items-center justify-center gap-1.5 shadow-xs hover:shadow-sm transition-all cursor-pointer whitespace-nowrap"
           >
             {copied ? (
               <>
                 <Check className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                <span className="text-emerald-800">Copied!</span>
+                <span className="text-emerald-900 font-extrabold">Copied!</span>
               </>
             ) : (
               <>
-                <Copy className="w-3.5 h-3.5 text-[#784A15] shrink-0" />
+                <Copy className="w-3.5 h-3.5 text-[#542F07] shrink-0" />
                 <span>Copy Link</span>
               </>
             )}
