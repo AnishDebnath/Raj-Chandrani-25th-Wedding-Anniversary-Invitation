@@ -15,7 +15,7 @@ export const ShareInvitation: React.FC = () => {
   };
 
   const inviteMessage =
-    "Namaskar! You are cordially invited to celebrate the 25th Wedding Anniversary (Silver Jubilee) of Raj & Chandrani on Saturday, 23rd January 2027 at ADB Manor, Kolkata.\n\nView the invitation: ";
+    "Namaskar! You are cordially invited to the 25th Wedding Anniversary of RAJ & CHANDRANI on Saturday evening, 23rd January 2027 at ADB MANOR, 69/1 Purna Das Road, Kolkata-700029 (beside Triangular Park). Program starts by 6:00 PM onwards.\n\nInvitation from our son RITHVIK.\nR.S.V.P.: 9433007412 (Raj) · 9432854364 (Chandrani)\n\nView Invitation: ";
 
   const handleWhatsAppShare = () => {
     const url = getShareUrl();
@@ -85,15 +85,15 @@ export const ShareInvitation: React.FC = () => {
           className="flex flex-col items-center"
         >
           <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-            SPREAD THE JOY
+            SPREAD THE CELEBRATION
           </span>
 
           <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
-            Share the Celebration
+            Share the Invitation
           </h2>
 
           <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            Invite family and dear friends to join our 25th wedding anniversary celebration.
+            Invite family and dear friends to join the 25th Wedding Anniversary of Raj &amp; Chandrani.
           </p>
         </motion.div>
 

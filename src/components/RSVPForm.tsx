@@ -49,6 +49,7 @@ export const RSVPForm: React.FC = () => {
   };
 
   const whatsappRaj = createWhatsAppRSVPLink('9433007412', formData);
+  const whatsappChandrani = createWhatsAppRSVPLink('9432854364', formData);
   const calendarUrl = createGoogleCalendarUrl();
 
   const handleGuestChange = (delta: number) => {
@@ -73,15 +74,15 @@ export const RSVPForm: React.FC = () => {
           className="flex flex-col items-center"
         >
           <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-            RESPONSE REQUESTED
+            KINDLY RESPOND
           </span>
 
           <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
-            Will You Join Us?
+            Anniversary RSVP
           </h2>
 
           <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            Your gracious presence will make our silver jubilee celebration truly complete. Kindly confirm your attendance.
+            Your gracious presence and warm blessings will make our 25th wedding anniversary celebration truly complete. Kindly confirm your attendance.
           </p>
         </motion.div>
 
@@ -109,15 +110,26 @@ export const RSVPForm: React.FC = () => {
               </p>
 
               <div className="space-y-2.5">
-                <a
-                  href={whatsappRaj}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-3 px-4 rounded-xl bg-[#20150F] hover:bg-[#110B07] text-[#FAF4EA] flex items-center justify-center gap-2 font-sans-clean font-bold text-xs tracking-[0.18em] uppercase transition-all shadow-sm active:scale-[0.99]"
-                >
-                  <Sparkles className="w-4 h-4" />
-                  <span>Send WhatsApp Note</span>
-                </a>
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={whatsappRaj}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3 rounded-xl bg-[#20150F] hover:bg-[#110B07] text-[#FAF4EA] flex items-center justify-center gap-1.5 font-sans-clean font-bold text-[11px] tracking-[0.14em] uppercase transition-all shadow-sm active:scale-[0.99] text-center"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                    <span>WhatsApp Raj</span>
+                  </a>
+                  <a
+                    href={whatsappChandrani}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="py-2.5 px-3 rounded-xl bg-[#20150F] hover:bg-[#110B07] text-[#FAF4EA] flex items-center justify-center gap-1.5 font-sans-clean font-bold text-[11px] tracking-[0.14em] uppercase transition-all shadow-sm active:scale-[0.99] text-center"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 shrink-0" />
+                    <span>WhatsApp Chandrani</span>
+                  </a>
+                </div>
                 <a
                   href={calendarUrl}
                   target="_blank"
@@ -140,7 +152,7 @@ export const RSVPForm: React.FC = () => {
           ) : (
             /* RSVP Form */
             <form onSubmit={handleSubmit} className="space-y-4">
-              
+
               {/* Name Input Box (Dashed style matching GROUP CODE) */}
               <div>
                 <label
@@ -188,11 +200,10 @@ export const RSVPForm: React.FC = () => {
                         guests: 1,
                       }))
                     }
-                    className={`py-2.5 px-2 rounded-xl text-xs font-sans-clean font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 ${
-                      formData.attendance === 'yes'
+                    className={`py-2.5 px-2 rounded-xl text-xs font-sans-clean font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 ${formData.attendance === 'yes'
                         ? 'bg-[#20150F] text-[#FAF4EA] shadow-xs'
                         : 'border border-[#C5A77B] text-[#543D28] hover:bg-[#E8D4B8]/40'
-                    }`}
+                      }`}
                   >
                     <Check className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                     <span className="whitespace-nowrap">Joyfully Attend</span>
@@ -200,11 +211,10 @@ export const RSVPForm: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, attendance: 'no', guests: 0 })}
-                    className={`py-2.5 px-2 rounded-xl text-xs font-sans-clean font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 ${
-                      formData.attendance === 'no'
+                    className={`py-2.5 px-2 rounded-xl text-xs font-sans-clean font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 whitespace-nowrap min-w-0 ${formData.attendance === 'no'
                         ? 'bg-[#20150F] text-[#FAF4EA] shadow-xs'
                         : 'border border-[#C5A77B] text-[#543D28] hover:bg-[#E8D4B8]/40'
-                    }`}
+                      }`}
                   >
                     <X className="w-3.5 h-3.5 text-stone-400 shrink-0" />
                     <span className="whitespace-nowrap">Regretfully Decline</span>
@@ -226,9 +236,8 @@ export const RSVPForm: React.FC = () => {
                   </span>
                 </div>
                 <div
-                  className={`h-11 rounded-xl border border-[#BFA075] bg-white/70 px-3 flex items-center justify-between shadow-2xs transition-opacity ${
-                    formData.attendance === 'no' ? 'opacity-40 pointer-events-none' : 'opacity-100'
-                  }`}
+                  className={`h-11 rounded-xl border border-[#BFA075] bg-white/70 px-3 flex items-center justify-between shadow-2xs transition-opacity ${formData.attendance === 'no' ? 'opacity-40 pointer-events-none' : 'opacity-100'
+                    }`}
                 >
                   <button
                     type="button"
@@ -285,8 +294,15 @@ export const RSVPForm: React.FC = () => {
 
         </motion.div>
 
+        {/* Invitation from our son RITHVIK */}
+        <div className="mt-6 text-center">
+          <p className="font-cinzel text-xs tracking-[0.24em] text-[#542F07] uppercase font-bold drop-shadow-[0_1px_1px_rgba(255,255,255,0.85)]">
+            Invitation from our son RITHVIK
+          </p>
+        </div>
+
         {/* Tap to Call Contact */}
-        <div className="mt-6 flex items-center justify-center flex-wrap gap-2 text-xs font-sans-clean text-[#4A392F]">
+        <div className="mt-3 flex items-center justify-center flex-wrap gap-2 text-xs font-sans-clean text-[#4A392F]">
           <Phone className="w-3.5 h-3.5 text-[#784A15] shrink-0" />
           <a href="tel:9433007412" className="hover:text-[#784A15] transition-colors font-semibold">
             9433007412 (Raj)

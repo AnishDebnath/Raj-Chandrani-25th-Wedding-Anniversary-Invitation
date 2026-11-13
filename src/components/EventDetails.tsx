@@ -15,30 +15,30 @@ interface ItineraryItem {
 const EVENTS: ItineraryItem[] = [
   {
     time: '6:00 PM',
-    title: 'Welcome & Reception',
-    subtitle: 'ADB Manor',
-    description: 'We kindly ask guests to arrive by 6:00 PM as our celebration begins with welcome drinks and greetings.',
+    title: 'Program Starts',
+    subtitle: '6:00 PM Onwards',
+    description: 'The program commences by 6:00 PM onwards as we warmly welcome all guests.',
     icon: <Users className="w-4 h-4 text-[#542F07]" />,
   },
   {
     time: '7:00 PM',
-    title: 'Live Musical Evening',
-    subtitle: 'Melodious Songs',
-    description: 'Soulful vocal performances by renowned singers to celebrate twenty-five years of love.',
+    title: 'Song Performance',
+    subtitle: 'Female & Male Singers',
+    description: 'A delightful song performance by female & male singers.',
     icon: <Mic className="w-4 h-4 text-[#542F07]" />,
   },
   {
     time: '8:30 PM',
-    title: 'Mala Bodol & Cake Cutting',
-    subtitle: 'Sacred Rituals',
-    description: 'Traditional exchange of flower garlands followed by cutting our 25th anniversary silver jubilee cake.',
+    title: 'Cake Cutting Ceremony & Mala Bodol',
+    subtitle: 'Ceremony',
+    description: 'Cake cutting ceremony & traditional mala bodol commemorating 25 golden years.',
     icon: <Cake className="w-4 h-4 text-[#542F07]" />,
   },
   {
     time: '9:00 PM',
-    title: 'Dinner & Celebrations',
-    subtitle: 'until late',
-    description: 'A lavish celebratory multi-cuisine banquet feast followed by joyful celebration under Kolkata skies.',
+    title: 'Dinner',
+    subtitle: 'Celebratory Feast',
+    description: 'A grand celebratory dinner served for all guests.',
     icon: <Utensils className="w-4 h-4 text-[#542F07]" />,
   },
 ];
@@ -61,15 +61,15 @@ export const EventDetails: React.FC = () => {
           className="flex flex-col items-center"
         >
           <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-            THE DAY
+            ANNIVERSARY PROGRAM
           </span>
 
           <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
-            Evening Details
+            Order of Events
           </h2>
 
           <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-8 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            We&apos;ve planned a beautiful evening in Kolkata. Here&apos;s what to expect as we celebrate from sunset to starlight.
+            Saturday evening, 23rd January 2027 · The program starts by 6:00 PM onwards at ADB MANOR.
           </p>
         </motion.div>
 

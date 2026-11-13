@@ -32,17 +32,17 @@ export const WelcomeStory: React.FC = () => {
         >
           {/* Kicker */}
           <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-            OUR JOURNEY
+            25 YEARS OF CHERISHED MEMORIES
           </span>
 
           {/* Script Title */}
           <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
-            Moments of Our Journey
+            Glimpses of Togetherness
           </h2>
 
           {/* Paragraph with tuned margin matching other sections' visual gap */}
           <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-4 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            Twenty-five years of cherished memories, shared laughter, and enduring love.
+            Twenty-five beautiful years of cherished memories, shared laughter, and enduring love through the golden journey of Raj &amp; Chandrani.
           </p>
         </motion.div>
       </div>

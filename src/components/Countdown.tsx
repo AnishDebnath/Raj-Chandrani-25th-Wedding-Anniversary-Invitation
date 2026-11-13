@@ -45,7 +45,7 @@ export const Countdown: React.FC = () => {
           className="flex flex-col items-center"
         >
           <span className="font-cinzel text-xs tracking-[0.28em] text-[#542F07] uppercase font-bold leading-none mb-1.5 drop-shadow-[0_1px_1px_rgba(255,255,255,0.9)]">
-            SAVE THE DATE
+            SILVER JUBILEE CELEBRATION
           </span>
 
           <h2 className="font-script-romantic text-3xl text-[#0F0804] leading-tight my-1 drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)] font-normal">
@@ -53,7 +53,7 @@ export const Countdown: React.FC = () => {
           </h2>
 
           <p className="font-serif-luxury italic text-sm text-[#22130A] font-semibold leading-relaxed max-w-sm mt-2 mb-7 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            Two lives, twenty-five years, and a lifetime of shared memories. We warmly invite you to join our family as we celebrate our silver jubilee.
+            Two lives, twenty-five golden years, and a lifetime of shared devotion. Join us on Saturday, 23rd January 2027 as we celebrate the 25th Wedding Anniversary of Raj &amp; Chandrani.
           </p>
         </motion.div>
 
@@ -149,7 +149,7 @@ export const Countdown: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="font-cinzel text-xs font-bold tracking-[0.25em] text-[#542F07] uppercase block mt-7 mb-3 drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]"
         >
-          TIME REMAINING
+          COUNTDOWN TO THE CELEBRATION
         </motion.span>
 
         {/* 4 Stats Row directly on page background with appear animation */}

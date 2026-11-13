@@ -65,9 +65,9 @@ export function createGoogleCalendarUrl(): string {
   // In UTC: 20270123T123000Z to 20270123T173000Z
   const title = encodeURIComponent("Raj & Chandrani's 25th Wedding Anniversary");
   const details = encodeURIComponent(
-    "Celebrating 25 Years of Togetherness! Cordially invited by Rithvik.\nVenue: ADB MANOR, 69/1 Purna Das Road, Kolkata - 700029 (Beside Triangular Park)"
+    "Celebrating 25 Years of Togetherness! Invitation from our son RITHVIK.\nProgram starts by 6:00 PM onwards.\nVenue: ADB MANOR, 69/1 Purna Das Road, Kolkata - 700029, beside Triangular Park.\nR.S.V.P.: 9433007412 (Raj) · 9432854364 (Chandrani)"
   );
-  const location = encodeURIComponent("ADB MANOR, 69/1 Purna Das Road, Kolkata - 700029");
+  const location = encodeURIComponent("ADB MANOR, 69/1 Purna Das Road, Kolkata - 700029, beside Triangular Park");
   const dates = "20270123T123000Z/20270123T173000Z";
 
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;

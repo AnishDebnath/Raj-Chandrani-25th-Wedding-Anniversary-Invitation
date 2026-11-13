@@ -67,13 +67,13 @@ export const Footer: React.FC = () => {
           >
             <Heart className="w-4 h-4 text-[#B87C29] fill-[#B87C29] mb-2 opacity-90 drop-shadow-xs" />
           </motion.div>
-          
+
           <span className="font-cinzel text-xs font-bold tracking-[0.24em] uppercase text-[#180E08] drop-shadow-[0_1px_1px_rgba(255,255,255,0.8)]">
-            25 Years &amp; A Lifetime To Go
+            25 YEARS OF TOGETHERNESS
           </span>
 
-          <p className="font-serif-luxury italic text-xs text-[#542F07] mt-1.5 font-semibold drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
-            Raj &amp; Chandrani · ADB Manor Kolkata · 23 January 2027
+          <p className="font-cinzel text-[10px] tracking-[0.22em] text-[#542F07] uppercase font-bold mt-1 drop-shadow-[0_1px_1px_rgba(255,255,255,0.7)]">
+            Invitation from our son RITHVIK
           </p>
 
           {/* Back To Top Button */}

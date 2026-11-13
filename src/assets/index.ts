@@ -5,6 +5,7 @@ import venueImg from './venue.jpg';
 import backgroundImg from './background.png';
 import introVideo from './intro.mp4';
 import introPoster from './intro-poster.png';
+import faviconImg from './favicon.png';
 
 // Story images from img folder
 import storyImg1 from './img/Traditional Bengali Wedding Portrait1.jpg';
@@ -52,4 +53,5 @@ export {
   backgroundImg,
   introVideo,
   introPoster,
+  faviconImg,
 };
