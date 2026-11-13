@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { IntroVideo } from './components/IntroVideo';
 import { Hero } from './components/Hero';
 import { Countdown } from './components/Countdown';
+import { AudioPlayer } from './components/AudioPlayer';
 import { backgroundImg } from './assets';
 
 // ponytail: lazy load below-the-fold components to reduce initial JS payload and fast load
@@ -167,6 +168,9 @@ export default function App() {
           </div>
         </main>
       </motion.div>
+
+      {/* Background Music Player with bottom-right floating mute/unmute control */}
+      <AudioPlayer shouldPlay={!showIntro} />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import introPoster from './intro-poster.png';
 import faviconImg from './favicon.png';
 import watermarkImg from './watermark/watermark.png';
 import ogCoverImg from './og-cover.jpg';
+import backgroundMusic from './background-music.mp3';
 
 // Story images from img folder
 import storyImg1 from './img/Traditional Bengali Wedding Portrait1.jpg';
@@ -58,4 +59,5 @@ export {
   faviconImg,
   watermarkImg,
   ogCoverImg,
+  backgroundMusic,
 };
